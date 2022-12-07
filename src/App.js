@@ -1,9 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+import { AuthContextComponent } from "./context/authContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <>
+      <AuthContextComponent>
+        <Routes>
+          <Route path="/" />
+          <Route path="/" />
+          <Route path="/" />
+          <Route path="/" element={<ProtectedRoute component={""} />} />
+        </Routes>
+      </AuthContextComponent>
+    </>
   );
 }
 
