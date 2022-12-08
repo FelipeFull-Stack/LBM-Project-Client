@@ -1,16 +1,14 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { api } from "../api/api";
+import { useContext, useState } from "react";
+import { api } from "../../api/api";
+import { AuthContext } from "../../context/authContext";
 
-function Signup() {
-
-    const navigate = useNavigate();
-
+function Login() {
     const [form, setForm] = useState({
-        name: "",
         email: "",
         password: ""
     });
+
+    const { setLoggendInUser } = useContext(AuthContext);
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -20,8 +18,9 @@ function Signup() {
         event.preventDefault();
 
         try {
-            await api.post("/user/signup", form);
-            navigate("/login");
+            const res = await api.post("/user/login", form);
+            setLoggendInUser(res.data);
+            localStorage.setItem("loggedInUser", JSON.stringify(res.data));
         } catch (err) {
             console.log(err);
         }
@@ -30,19 +29,6 @@ function Signup() {
     return (
         <>
             <form>
-                <div>
-                    <label htmlFor="input-name">Nome: </label>
-                    <input
-                        id="input-name"
-                        type="text"
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="Digite seu nome ..."
-                        required
-                    />
-                </div>
-
                 <div>
                     <label htmlFor="input-email">E-mail: </label>
                     <input
@@ -55,7 +41,6 @@ function Signup() {
                         required
                     />
                 </div>
-
                 <div>
                     <label htmlFor="input-password">Password: </label>
                     <input
@@ -64,20 +49,16 @@ function Signup() {
                         name="password"
                         value={form.password}
                         onChange={handleChange}
-                        placeholder="Ex: Z@abc123"
-                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
                         required
                     />
                 </div>
-
                 <div>
-                    <button onSubmit={handleSubmit}>Cadastrar</button>
-                    <Link to={"/signup"}>Cancelar</Link>
+                    <button onSubmit={handleSubmit}>Entrar</button>
+                    <button>Cancelar</button>
                 </div>
             </form>
         </>
     )
-
 }
 
-export { Signup };
+export { Login }
