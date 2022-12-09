@@ -16,6 +16,9 @@ function Profile() {
                 }
             } catch (err) {
                 console.log(err);
+                if (err.response.stats === 401) {
+                    localStorage.removeItem("loggedInUser")
+                }
             }
         }
         fetchUser();
