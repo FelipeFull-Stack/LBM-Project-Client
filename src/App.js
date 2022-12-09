@@ -10,7 +10,7 @@ function App() {
     <>
       <AuthContextComponent>
         <Routes>
-          <Route path="/" />
+          <Route path="/home" />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<ProtectedRoute component={Profile} />} />
