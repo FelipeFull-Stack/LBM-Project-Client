@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthContextComponent } from "./context/authContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { Signup } from "./Signup";
+import { Home } from "./pages/Home";
+import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 
@@ -10,7 +11,7 @@ function App() {
     <>
       <AuthContextComponent>
         <Routes>
-          <Route path="/home" />
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<ProtectedRoute component={Profile} />} />

@@ -12,7 +12,7 @@ api.interceptors.request.use((config) => {
     const parsedLoggedInUser = JSON.parse(loggedInUserJSON || '""');
 
     if (parsedLoggedInUser.token) {
-        config.headers = { Authorization: `Bearer ${parsedLoggedInUser.token}` }
+        config.headers = { Authorization: `Bearer ${parsedLoggedInUser.token}` };
     }
 
     return config;
