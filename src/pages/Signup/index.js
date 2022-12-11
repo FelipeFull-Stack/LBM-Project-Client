@@ -29,9 +29,12 @@ function Signup() {
 
     return (
         <>
-            <form>
-                <div>
-                    <label htmlFor="input-name">Nome: </label>
+            <form className="row g-3 needs-validation">
+                <div className="col-md-4">
+                    <label
+                        htmlFor="input-name"
+                        className="form-label"
+                    >Nome: </label>
                     <input
                         id="input-name"
                         type="text"
@@ -40,11 +43,18 @@ function Signup() {
                         onChange={handleChange}
                         placeholder="Digite seu nome ..."
                         required
+                        className="form-control"
                     />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
 
                 <div>
-                    <label htmlFor="input-email">E-mail: </label>
+                    <label
+                        htmlFor="input-email"
+                        className="form-label"
+                    >E-mail: </label>
                     <input
                         id="input-email"
                         type="text"
@@ -53,11 +63,18 @@ function Signup() {
                         onChange={handleChange}
                         placeholder="Ex: adgovado@gmail.com"
                         required
+                        className="form-control"
                     />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
 
                 <div>
-                    <label htmlFor="input-password">Password: </label>
+                    <label
+                        htmlFor="input-password"
+                        className="form-label"
+                    >Password: </label>
                     <input
                         id="input-password"
                         type="password"
@@ -67,11 +84,15 @@ function Signup() {
                         placeholder="Ex: Z@abc123"
                         pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
                         required
+                        className="form-control"
                     />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
 
                 <div>
-                    <button onSubmit={handleSubmit}>Cadastrar</button>
+                    <button onClick={() => { handleSubmit() }}>Cadastrar</button>
                     <Link to={"/signup"}>Cancelar</Link>
                 </div>
             </form>
