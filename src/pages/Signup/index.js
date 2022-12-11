@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { api } from "../../api/api.js";
+import { useNavigate } from "react-router-dom";
+import { api } from "../../api/api";
+// import Button from 'react-bootstrap/Button';
+
 
 function Signup() {
 
@@ -23,14 +25,14 @@ function Signup() {
             await api.post("/user/signup", form);
             navigate("/login");
         } catch (err) {
-            console.log(err);
+            console.log(`Erro no signup FrontEnd: ${err}`);
         }
     }
 
     return (
         <>
-            <form className="row g-3 needs-validation">
-                <div className="col-md-4">
+            <form onSubmit={handleSubmit} className="row g-3 needs-validation m-2">
+                <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-name"
                         className="form-label"
@@ -45,19 +47,19 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div>
+                <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-email"
                         className="form-label"
                     >E-mail: </label>
                     <input
                         id="input-email"
-                        type="text"
+                        type="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
@@ -65,12 +67,12 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div>
+                <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-password"
                         className="form-label"
@@ -82,20 +84,25 @@ function Signup() {
                         value={form.password}
                         onChange={handleChange}
                         placeholder="Ex: Z@abc123"
-                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
+                        // pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
                         required
                         className="form-control"
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div>
-                    <button onClick={() => { handleSubmit() }}>Cadastrar</button>
-                    <Link to={"/signup"}>Cancelar</Link>
-                </div>
+                {/* <Button
+                    onClick={handleSubmit}
+                    variant="primary"
+                    className="mt-4 m-2"
+                >Cadastrar</Button> */}
+                <button>Cadastrar</button>
             </form>
+            {/* <Link to="/home"><Button
+                className="mt-4 m-2"
+            >Cancelar</Button></Link> */}
         </>
     )
 

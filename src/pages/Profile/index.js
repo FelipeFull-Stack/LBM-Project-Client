@@ -1,24 +1,19 @@
-import { useState, useContext } from "react";
-import { api } from "../../api/api.js";
-import { useEffect } from "react";
-import { AuthContext } from "../../context/authContext";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../api/api";
 
-function Profile() {
-    const [userData, setUserData] = useState({});
-    const { loggedInUser } = useContext(AuthContext);
+export function Profile() {
     const navigate = useNavigate();
+    const [userData, setUserData] = useState({});
 
     useEffect(() => {
         async function fetchUser() {
             try {
-                if (loggedInUser) {
-                    const res = await api.get("/user/profile");
-                    setUserData(res.data);
-                }
+                const response = await api.get("/user/profile");
+                setUserData(response.data);
             } catch (err) {
-                console.log(err);
-                if (err.response.stats === 401) {
+                console.log(`Erro no profile FrontEnd: ${err}`);
+                if (err.response.status === 401) {
                     localStorage.removeItem("loggedInUser");
                     navigate("/");
                 }
@@ -29,13 +24,7 @@ function Profile() {
 
     return (
         <>
-            {
-                userData !== {} ?
-                    <h1>{userData.name}</h1>
-                    :
-                    <h1>Faça o Login</h1>}
+            <h1>{userData.name}</h1>
         </>
     )
 }
-
-export { Profile }
