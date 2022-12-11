@@ -8,9 +8,14 @@ function Home() {
 
     return (
         <>
-            {loadingContext ? <h1>Carregando</h1>
-                : loggedInUser ? (<h1>Ir para Perfin {loggedInUser.name}</h1>)
-                    : navigate("/login")}
+            {loadingContext ?
+                <h1>Carregando</h1>
+                :
+                loggedInUser ?
+                    <h1>Ir para Perfil {loggedInUser.name}</h1>
+                    :
+                    navigate("/login")
+            }
         </>
     );
 }
