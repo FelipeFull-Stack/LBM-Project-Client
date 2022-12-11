@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { api } from "../../api/api.js";
-import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
+import { api } from "../../api/api";
+// import Button from 'react-bootstrap/Button';
 
 
 function Signup() {
@@ -25,13 +25,13 @@ function Signup() {
             await api.post("/user/signup", form);
             navigate("/login");
         } catch (err) {
-            console.log(err);
+            console.log(`Erro no signup FrontEnd: ${err}`);
         }
     }
 
     return (
         <>
-            <form className="row g-3 needs-validation m-2">
+            <form onSubmit={handleSubmit} className="row g-3 needs-validation m-2">
                 <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-name"
@@ -59,7 +59,7 @@ function Signup() {
                     >E-mail: </label>
                     <input
                         id="input-email"
-                        type="text"
+                        type="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
@@ -84,7 +84,7 @@ function Signup() {
                         value={form.password}
                         onChange={handleChange}
                         placeholder="Ex: Z@abc123"
-                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
+                        // pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
                         required
                         className="form-control"
                     />
@@ -93,18 +93,16 @@ function Signup() {
                     </div>
                 </div>
 
-                <div className="m-2">
-                    <Button
-                        onClick={() => { handleSubmit() }}
-                        variant="primary"
-                        className="mt-4 m-1"
-                    >Cadastrar</Button>
-                    <Button
-                        onClick={() => { navigate("/home") }}
-                        className="mt-4 m-1"
-                    >Cancelar</Button>
-                </div>
+                {/* <Button
+                    onClick={handleSubmit}
+                    variant="primary"
+                    className="mt-4 m-2"
+                >Cadastrar</Button> */}
+                <button>Cadastrar</button>
             </form>
+            {/* <Link to="/home"><Button
+                className="mt-4 m-2"
+            >Cancelar</Button></Link> */}
         </>
     )
 

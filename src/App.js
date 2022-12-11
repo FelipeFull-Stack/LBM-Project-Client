@@ -13,10 +13,9 @@ function App() {
       <AuthContextComponent>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<ProtectedRoute component={Profile} />} />
+          <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
         </Routes>
       </AuthContextComponent>
     </>
