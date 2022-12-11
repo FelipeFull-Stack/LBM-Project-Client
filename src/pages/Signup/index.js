@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { api } from "../../api/api.js";
+import Button from 'react-bootstrap/Button';
+
 
 function Signup() {
 
@@ -29,8 +31,8 @@ function Signup() {
 
     return (
         <>
-            <form className="row g-3 needs-validation">
-                <div className="col-md-4">
+            <form className="row g-3 needs-validation m-2">
+                <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-name"
                         className="form-label"
@@ -45,12 +47,12 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div>
+                <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-email"
                         className="form-label"
@@ -65,12 +67,12 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div>
+                <div className="col-md-4 m-2">
                     <label
                         htmlFor="input-password"
                         className="form-label"
@@ -86,14 +88,21 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div>
-                    <button onClick={() => { handleSubmit() }}>Cadastrar</button>
-                    <Link to={"/signup"}>Cancelar</Link>
+                <div className="m-2">
+                    <Button
+                        onClick={() => { handleSubmit() }}
+                        variant="primary"
+                        className="mt-4 m-1"
+                    >Cadastrar</Button>
+                    <Button
+                        onClick={() => { navigate("/home") }}
+                        className="mt-4 m-1"
+                    >Cancelar</Button>
                 </div>
             </form>
         </>
