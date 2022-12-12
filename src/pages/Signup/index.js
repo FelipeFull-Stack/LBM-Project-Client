@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { api } from "../../api/api";
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 
 
 function Signup() {
@@ -91,9 +91,9 @@ function Signup() {
                 >Cadastrar</Button> */}
                 <button>Cadastrar</button>
             </form>
-            {/* <Link to="/home"><Button
+            <Link to="/home"><Button
                 className="mt-4 m-2"
-            >Cancelar</Button></Link> */}
+            >Cancelar</Button></Link>
         </>
     )
 

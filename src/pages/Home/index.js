@@ -6,7 +6,7 @@ function Home() {
     const { loggedInUser, loadingContext } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    
+
 
     return (
         <>
@@ -14,9 +14,16 @@ function Home() {
                 <h1>Carregando</h1>
                 :
                 loggedInUser ?
-                    <h1>Ir para Perfil {loggedInUser.name}</h1>
+                    <div>
+                        <h1>Ir para Perfil</h1>
+                        <button onClick={() => { navigate("/profile") }} >Perfil</button>
+                    </div>
                     :
-                    navigate("/login")
+                    <div>
+                        <h1>Bem vindo</h1>
+                        <button onClick={() => { navigate("/login") }}>Faça o Login</button>
+                        <button onClick={() => { navigate("/signup") }}>Faça o Cadastro</button>
+                    </div>
             }
         </>
     );
