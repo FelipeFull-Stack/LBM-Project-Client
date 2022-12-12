@@ -47,9 +47,6 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div className="valid-feedback">
-                        Looks good!
-                    </div>
                 </div>
 
                 <div className="col-md-4 m-2">
@@ -67,9 +64,6 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div className="valid-feedback">
-                        Looks good!
-                    </div>
                 </div>
 
                 <div className="col-md-4 m-2">
@@ -88,9 +82,6 @@ function Signup() {
                         required
                         className="form-control"
                     />
-                    <div className="valid-feedback">
-                        Looks good!
-                    </div>
                 </div>
 
                 {/* <Button

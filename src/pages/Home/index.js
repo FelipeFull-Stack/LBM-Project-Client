@@ -6,7 +6,7 @@ function Home() {
     const { loggedInUser, loadingContext } = useContext(AuthContext);
     const navigate = useNavigate();
 
-
+    
 
     return (
         <>
