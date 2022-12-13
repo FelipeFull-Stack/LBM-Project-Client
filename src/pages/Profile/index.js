@@ -17,7 +17,7 @@ export function Profile() {
                 console.log(`Erro no profile FrontEnd: ${err}`);
                 if (err.response.status === 401) {
                     localStorage.removeItem("loggedInUser");
-                    navigate("/");
+                    navigate("/login");
                 }
             }
         }
@@ -27,13 +27,13 @@ export function Profile() {
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
         setLoggedInUser(null);
-        navigate("/");
+        navigate("/login");
     }
 
     return (
         <>
-            <h1>{userData.name}</h1>
-            <p>Nome de Perfil</p>
+            <h1>Nome: {userData.name}</h1>
+            <p>Este é seu perfil</p>
             <button onClick={handleLogOut}>Log-out</button>
         </>
     )

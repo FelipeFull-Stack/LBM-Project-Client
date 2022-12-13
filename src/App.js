@@ -13,8 +13,12 @@ function App() {
       <AuthContextComponent>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          {/* <Route path="/cadastro-cliente" element={<CardCustomer />} /> */}
+          {/* <Route path="/cadastro-processo" element={<CardProcess />} /> */}
+          {/* <Route path="/agendamento" element={<CardMeeting />} /> */}
           <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
         </Routes>
       </AuthContextComponent>
