@@ -3,6 +3,9 @@ import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import { HomeLayout } from "../../components/HomeLayout";
 
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 function Home() {
     const { loggedInUser, loadingContext } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,14 +21,26 @@ function Home() {
                     <>
                         <HomeLayout />
                     </>
-                    /* <div>
-                        <h1>Ir para Perfil</h1>
-                        <button onClick={() => { navigate("/profile") }} >Perfil</button>
-                    </div> */
                     :
                     <>
-                        <h1> Faça o login </h1>
-                        <button onClick={() => { navigate("/login") }}>Login</button>
+                        <div
+                            className="modal show"
+                            style={{ display: 'block', position: 'initial' }}
+                        >
+                            <Modal.Dialog>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Alerta: Usuário não identificado</Modal.Title>
+                                </Modal.Header>
+
+                                <Modal.Body>
+                                    <p>Porfavor, certfique-se de fazer o login corretamente</p>
+                                </Modal.Body>
+
+                                <Modal.Footer>
+                                    <Button variant="primary" onClick={() => { navigate("login") }}>OK</Button>
+                                </Modal.Footer>
+                            </Modal.Dialog>
+                        </div>
                     </>
             }
         </>
