@@ -43,7 +43,7 @@ function CardMeeting() {
         <>
             <form>
                 <Card className="text-center">
-                    <Card.Header>Cadastro do Cliente</Card.Header>
+                    <Card.Header>Agendamento</Card.Header>
                     <Card.Body>
 
                         <div>

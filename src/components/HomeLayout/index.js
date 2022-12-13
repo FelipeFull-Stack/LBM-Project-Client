@@ -13,9 +13,10 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function HomeLayout() {
 
-    const [form, setForm] = useState({
-
+    const [click, setClick] = useState({
+        
     });
+    
     const navigate = useNavigate();
     const { setLoggedInUser } = useContext(AuthContext);
 
