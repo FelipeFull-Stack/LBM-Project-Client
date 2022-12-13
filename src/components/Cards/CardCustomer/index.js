@@ -109,7 +109,6 @@ function CardCustomer() {
                         <Button variant="primary" onClick={handleClear}>Limpar</Button>
                         <Button variant="primary" onClick={() => { navigate("/home") }}>Voltar</Button>
                     </Card.Body>
-                    <Card.Footer className="text-muted">2 days ago</Card.Footer>
                 </Card>
             </form>
         </>

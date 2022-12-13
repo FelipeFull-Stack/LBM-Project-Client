@@ -11,11 +11,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-
-const { Header, Content, Sider } = Layout;
-
 function HomeLayout() {
 
     const [form, setForm] = useState({
@@ -36,7 +31,7 @@ function HomeLayout() {
                 <Navbar bg="dark" variant="dark" className="align-right">
                     <Container>
                         <Nav className="me-auto">
-                             <Nav.Link href="/home">Home</Nav.Link> 
+                            <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/signup">Signup</Nav.Link>
                             <NavDropdown title="Menu" id="navbarScrollingDropdown">
@@ -57,7 +52,6 @@ function HomeLayout() {
                             id="bg-vertical-dropdown-1"
                         >
                             <Dropdown.Item >Novo</Dropdown.Item>
-                            <Dropdown.Item eventKey="1">Editar</Dropdown.Item>
                         </DropdownButton>
                         <DropdownButton
                             as={ButtonGroup}
