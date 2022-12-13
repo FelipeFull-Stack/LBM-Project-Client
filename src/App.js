@@ -11,23 +11,22 @@ import { CardProcess } from "./components/Cards/CardProcess";
 import { CardMeeting } from "./components/Cards/CardMeeting";
 
 function App() {
-    return (
-      <>
-        <AuthContextComponent>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cardpage" element={<CardPage />} />
+  return (
+    <>
+      <AuthContextComponent>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
             <Route path="/cadastro-cliente" element={<CardCustomer />} />
             <Route path="/cadastro-processo" element={<CardProcess />} />
             <Route path="/agendamento" element={<CardMeeting />} />
-            <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
-          </Routes>
-        </AuthContextComponent>
-      </>
-    );
-  }
+          <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
+        </Routes>
+      </AuthContextComponent>
+    </>
+  );
+}
 
 export default App;
