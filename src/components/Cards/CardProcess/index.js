@@ -2,7 +2,7 @@ import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { api } from "../../../api/api";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function CardProcess() {
 
@@ -17,6 +17,16 @@ function CardProcess() {
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value });
+    }
+
+    function handleClear() {
+        setForm({
+            numProcess: 0,
+            type: "",
+            value: 0,
+            etapa: "",
+            comarca: ""
+        })
     }
 
     async function handleSubmit(event) {
@@ -90,12 +100,9 @@ function CardProcess() {
                             />
                         </div>
                         <Button variant="primary" onClick={handleSubmit}>Cadastrar</Button>
-                        <Button variant="primary" onClick={() => {
-
-                            navigate("/home")
-                        }}>Cancelar</Button>
+                        <Button variant="primary" onClick={handleClear}>Limpar</Button>
+                        <Button variant="primary" onClick={() => { navigate("/home") }}>Voltar</Button>
                     </Card.Body>
-                    <Card.Footer className="text-muted">2 days ago</Card.Footer>
                 </Card>
             </form>
         </>
