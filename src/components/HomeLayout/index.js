@@ -1,86 +1,86 @@
-import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/authContext";
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Sider } = Layout;
-const items1 = ['1', '2', '3'].map((key) => ({
-    key,
-    label: `nav ${key}`,
-}));
-
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-    const key = String(index + 1);
-    return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-        children: new Array(4).fill(null).map((_, j) => {
-            const subKey = index * 4 + j + 1;
-            return {
-                key: subKey,
-                label: `option${subKey}`,
-            };
-        }),
-    };
-});
 
 function HomeLayout() {
 
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
+    const [form, setForm] = useState({
+
+    });
+    const navigate = useNavigate();
+    const { setLoggedInUser } = useContext(AuthContext);
+
+    function handleLogOut() {
+        localStorage.removeItem("loggedInUser");
+        setLoggedInUser(null);
+        navigate("/login");
+    }
 
     return (
-        <Layout>
-            <Header className="header">
-                <div className="logo" />
-                <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
-            </Header>
-            <Layout>
-                <Sider
-                    width={200}
-                    style={{
-                        background: colorBgContainer,
-                    }}
-                >
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
-                        style={{
-                            height: '100%',
-                            borderRight: 0,
-                        }}
-                        items={items2}
-                    />
-                </Sider>
-                <Layout
-                    style={{
-                        padding: '0 24px 24px',
-                    }}
-                >
-                    <Breadcrumb
-                        style={{
-                            margin: '16px 0',
-                        }}
-                    >
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>List</Breadcrumb.Item>
-                        <Breadcrumb.Item>App</Breadcrumb.Item>
-                    </Breadcrumb>
-                    <Content
-                        style={{
-                            padding: 24,
-                            margin: 0,
-                            minHeight: 280,
-                            background: colorBgContainer,
-                        }}
-                    >
-                        Content
-                    </Content>
-                </Layout>
-            </Layout>
-        </Layout>
+        <>
+            <body>
+                <Navbar bg="dark" variant="dark" className="align-right">
+                    <Container>
+                        <Nav className="me-auto">
+                             <Nav.Link href="/home">Home</Nav.Link> 
+                            <Nav.Link href="/login">Login</Nav.Link>
+                            <Nav.Link href="/signup">Signup</Nav.Link>
+                            <NavDropdown title="Menu" id="navbarScrollingDropdown">
+                                <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#" onClick={handleLogOut}>
+                                    Logout
+                                </NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                    </Container>
+                </Navbar>
+                <aside >
+                    <ButtonGroup vertical>
+                        <DropdownButton
+                            as={ButtonGroup}
+                            title="Clientes"
+                            id="bg-vertical-dropdown-1"
+                        >
+                            <Dropdown.Item >Novo</Dropdown.Item>
+                            <Dropdown.Item eventKey="1">Editar</Dropdown.Item>
+                        </DropdownButton>
+                        <DropdownButton
+                            as={ButtonGroup}
+                            title="Processos"
+                            id="bg-vertical-dropdown-2"
+                        >
+                            <Dropdown.Item eventKey="1">Novo</Dropdown.Item>
+                        </DropdownButton>
+                        <DropdownButton
+                            as={ButtonGroup}
+                            title="Reuniões"
+                            id="bg-vertical-dropdown-3"
+                        >
+                            <Dropdown.Item eventKey="1">Novo</Dropdown.Item>
+                        </DropdownButton>
+                    </ButtonGroup>
+
+                </aside>
+                <content>
+
+                </content>
+            </body>
+        </>
     );
 }
 

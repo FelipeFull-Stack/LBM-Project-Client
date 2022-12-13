@@ -17,7 +17,7 @@ export function Profile() {
                 console.log(`Erro no profile FrontEnd: ${err}`);
                 if (err.response.status === 401) {
                     localStorage.removeItem("loggedInUser");
-                    navigate("/");
+                    navigate("/login");
                 }
             }
         }
@@ -27,7 +27,7 @@ export function Profile() {
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
         setLoggedInUser(null);
-        navigate("/");
+        navigate("/login");
     }
 
     return (

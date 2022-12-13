@@ -89,7 +89,7 @@ function Signup() {
                     variant="primary"
                     className="mt-4 m-2"
                 >Cadastrar</Button> */}
-                <button>Cadastrar</button>
+                <Button className="m-2">Cadastrar</Button>
             </form>
             <Link to="/home"><Button
                 className="mt-4 m-2"

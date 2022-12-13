@@ -27,7 +27,7 @@ export function Login() {
             const response = await api.post("/user/login", form);
             setLoggedInUser(response.data);
             localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-            navigate("/profile");
+            navigate("/home");
         } catch (err) {
             console.log(`Erro no login/handleSubmit FrontEnd: ${err}`);
         }
