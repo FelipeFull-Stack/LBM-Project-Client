@@ -7,7 +7,7 @@ import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { CardCustomer } from "./components/Cards/CardCustomer";
-import { CardProcess } from "./components/Cards/CardProcess";
+import { CardProcess } from "./components/Cards/CreateCards/CardProcess";
 import { CardMeeting } from "./components/Cards/CardMeeting";
 
 function App() {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { api } from "../../../api/api";
+import { api } from "../../../../api/api";
 import { useNavigate } from "react-router-dom";
 
 function CardProcess() {
