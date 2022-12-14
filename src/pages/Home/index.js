@@ -1,4 +1,4 @@
-import { useContext, setTimout, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { authDisplayContext } from "../../context/authDisplayContext";
 import { useNavigate } from "react-router-dom";

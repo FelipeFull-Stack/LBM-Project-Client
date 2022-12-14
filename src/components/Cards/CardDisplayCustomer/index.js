@@ -1,9 +1,11 @@
 
+
 function CardDisplayCustomer(props) {
     const { cpf, age, name, email, phone } = props;
 
     return (
-        <div>
+
+        <div className="">
             <p>{cpf}</p>
             <p>{name}</p>
             <p>{age}</p>

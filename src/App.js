@@ -6,9 +6,9 @@ import { Home } from "./pages/Home";
 import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
-import { CardCustomer } from "./components/Cards/CardCustomer";
+import { CardCustomer } from "./components/Cards/CreateCards/CardCustomer";
 import { CardProcess } from "./components/Cards/CreateCards/CardProcess";
-import { CardMeeting } from "./components/Cards/CardMeeting";
+import { CardMeeting } from "./components/Cards/CreateCards/CardMeeting";
 
 function App() {
   return (
