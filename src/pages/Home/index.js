@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, setTimout, useEffect } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
+import logoCourtHearing from "../../images/logo-court-hearing-lbm.png"
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +9,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Stack from 'react-bootstrap/Stack';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function Home() {
     const { loggedInUser, loadingContext } = useContext(AuthContext);
@@ -26,56 +26,92 @@ function Home() {
     return (
         <>
             {loadingContext ?
-                <h1>Carregando</h1>
+                <>
+                    window.setTimeout(function () {
+                        <div class="text-center" style={{ textAlign: "center" }}>
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    })
+                </>
                 :
                 loggedInUser ?
                     <>
-                        {/* <HomeLayout /> */}
                         <body>
-                            <Navbar bg="dark" variant="dark" >
-                                <Container>
-                                    <Nav className="me-auto">
-                                        <Nav.Link href="/home">Home</Nav.Link>
-                                        <Nav.Link href="/login">Login</Nav.Link>
-                                        <Nav.Link href="/signup">Signup</Nav.Link>
-                                        <NavDropdown title="Menu" id="navbarScrollingDropdown">
-                                            <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
-                                            <NavDropdown.Divider />
-                                            <NavDropdown.Item href="#" onClick={handleLogOut}>
-                                                Logout
-                                            </NavDropdown.Item>
-                                        </NavDropdown>
+                            <Navbar bg="dark" variant="dark" className="border d-flex" style={{height: "125px"}}>
+                                <div className="w-25  m-1">
+                                    <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
+                                </div>
+                                <Container className="w-50 d-flex  " style={{alignItems: "end"}}>
+                                    <Nav className=" d-flex container justify-content-end w-50" style={{alignItems: "end"}}>
+                                        <div>
+                                            <Nav.Link href="/home">Home</Nav.Link>
+                                            {/* <Nav.Link href="/login">Login</Nav.Link> */}
+                                            {/* <Nav.Link href="/signup">Signup</Nav.Link> */}
+                                        </div>
+                                        <div>
+                                            <NavDropdown title="Menu" id="navbarScrollingDropdown">
+                                                <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
+                                                <NavDropdown.Divider />
+                                                <NavDropdown.Item href="#" onClick={handleLogOut}>
+                                                    Log-out
+                                                </NavDropdown.Item>
+                                            </NavDropdown>
+                                        </div>
                                     </Nav>
                                 </Container>
                             </Navbar>
-                            <div>
-                                <aside>
-                                    <ButtonGroup vertical>
-                                        <Button className="md-5">
-                                            Exibir Clientes
-                                        </Button>
-                                        <Button className="md-5">
-                                            Exibir Processos
-                                        </Button>
-                                        <Button className="md-5">
-                                            Exibir Reuniões
-                                        </Button>
-                                    </ButtonGroup>
-                                </aside>
-                                <content>
 
-                                </content>
+                            <div style={{ height: "90vh" }} className="d-flex">
+                                <div className="d-flex w-25 h-100 bg-secondary">
+                                    <Stack gap={2} className="mx-left align-items-center w-100 border">
+                                        <ButtonGroup vertical className="w-75">
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1 mt-3">
+                                                Clientes
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Processos
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Reuniões
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                        </ButtonGroup>
+                                    </Stack>
+                                </div>
+
+                                <div className="d-flex h-100 bg-secondary border" style={{ width: "75vw" }}>
+                                    <Stack gap={2} className="mx-right align-items- w-100">
+                                        <h1>oi</h1>
+                                    </Stack>
+                                </div>
                             </div>
                         </body>
                     </>
                     :
+
                     <>
                         <div
                             className="modal show"
                             style={{ display: 'block', position: 'initial' }}
                         >
                             <Modal.Dialog>
-                                <Modal.Header closeButton>
+                                <Modal.Header>
                                     <Modal.Title>Alerta: Usuário não identificado</Modal.Title>
                                 </Modal.Header>
 
