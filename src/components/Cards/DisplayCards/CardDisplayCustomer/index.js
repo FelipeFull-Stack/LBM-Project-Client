@@ -21,7 +21,7 @@ function CardDisplayCustomer(props) {
                         {/* <MDBCardTitle>{name}</MDBCardTitle> */}
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "baseline" }}>
                             <input type="radio" />
-                            <div style={{ fontSize: "16px", fontWeight: "700", width: "150px", border: "solid" }}>{cpf}</div>
+                            <div style={{ fontSize: "16px", fontWeight: "700", width: "150px" }}>{cpf}</div>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "120px" }}>{name}</div>
                             {/* <div style={{ fontSize: "16px", fontWeight: "700", width: "120px" }}>{age}</div> */}
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "250px" }}>{email}</div>

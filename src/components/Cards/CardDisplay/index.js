@@ -78,7 +78,20 @@ function CardDisplay() {
                 displaySelect.selected === "process" ?
                     <>
                         <div>
-
+                            <div>
+                                <input />
+                                <button>Pesquisar</button>
+                            </div>
+                        </div>
+                        <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "6%" }}> </div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "white" }}>Nº Processo:</div>
+                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "9%", color: "white" }}>Tipo:</div>
+                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "15%", color: "white" }}>Valor:</div>
+                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "16%", color: "white" }}>Etapa:</div>
                         </div>
                         {processContents.map((currentElement) => {
                             return <CardDisplayProcess
