@@ -35,6 +35,7 @@ export function Profile() {
             <h1>Nome: {userData.name}</h1>
             <p>Este é seu perfil</p>
             <button onClick={handleLogOut}>Log-out</button>
+            <button onClick={() => { navigate("/") }}>Voltar</button>
         </>
     )
 }
