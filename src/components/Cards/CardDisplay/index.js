@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { authDisplayContext } from "../../../context/authDisplayContext";
 import { AuthContext } from "../../../context/authContext";
 import { useContext, useEffect, useState } from "react";
-import { CardDisplayCustomer } from "../CardDisplayCustomer";
+import { CardDisplayCustomer } from "../DisplayCards/CardDisplayCustomer";
+import { CardDisplayProcess } from "../DisplayCards/CardDisplayProcess";
+import { CardDisplayMeeting } from "../DisplayCards/CardDisplayMeeting";
 
 function CardDisplay() {
 
@@ -49,41 +51,59 @@ function CardDisplay() {
                         { loadingContext }
                         :
                         <>
-                            <h1>Customer</h1>
-                            <p>{customerContents[0].name}</p>
+
                             {/* {setDisplaySelect({ selected: "" })} */}
                             {console.log(customerContents)}
-                            <div className="col-5" style={{
-                                maxHeight: "90vh;", overflow: "scroll"
-                            }}>
-                                <div className="list-group">
-                                    {customerContents.map((currentElement) => {
-                                        return <CardDisplayCustomer
+                            <div>
+
+                            </div>
+                            {customerContents.map((currentElement) => {
+                                return (
+                                    <>
+                                        <CardDisplayCustomer
                                             cpf={currentElement.cpf}
                                             name={currentElement.name}
                                             age={currentElement.age}
                                             email={currentElement.email}
                                             phone={currentElement.phone}
                                         />
-                                    })}
-                                </div>
-                            </div>
+                                    </>
+                                )
+                            })}
+
                         </>
                     }
                 </>
                 :
                 displaySelect.selected === "process" ?
                     <>
-                        <h1> Process</h1>
-                        <p></p>
+                        <div>
+
+                        </div>
+                        {processContents.map((currentElement) => {
+                            return <CardDisplayProcess
+                                numProcess={currentElement.numProcess}
+                                type={currentElement.type}
+                                value={currentElement.value}
+                                etapa={currentElement.etapa}
+                            />
+                        })}
+
                         {console.log(processContents)}
                         {/* {setDisplaySelect({ selected: "" })} */}
                     </>
                     :
                     <>
-                        <h1>Meeting</h1>
-                        <p></p>
-                        <p></p>
+                        <div>
+
+                        </div>
+                        {meetingContents.map((currentElement) => {
+                            return <CardDisplayMeeting
+                                date={currentElement.date}
+                                time={currentElement.time}
+                                type={currentElement.type}
+                            />
+                        })}
                         {console.log(meetingContents)}
                         {/* {setDisplaySelect({ selected: "" })} */}
                     </>
