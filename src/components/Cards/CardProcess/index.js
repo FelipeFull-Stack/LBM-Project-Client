@@ -8,9 +8,9 @@ function CardProcess() {
 
     const navigate = useNavigate();
     const [form, setForm] = useState({
-        numProcess: 0,
+        numProcess: "",
         type: "",
-        value: 0,
+        value: "",
         etapa: "",
         comarca: ""
     });
@@ -21,9 +21,9 @@ function CardProcess() {
 
     function handleClear() {
         setForm({
-            numProcess: 0,
+            numProcess: "",
             type: "",
-            value: 0,
+            value: "",
             etapa: "",
             comarca: ""
         })
@@ -33,8 +33,7 @@ function CardProcess() {
         event.preventDefault();
         try {
             await api.post("/process", form)
-
-
+            navigate("/home");
         } catch (err) {
             console.log(`Erro no Front-end em CardProcess: ${err}`);
         }
