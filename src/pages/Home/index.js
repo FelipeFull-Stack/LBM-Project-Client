@@ -1,4 +1,4 @@
-import { useContext, setTimout, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { authDisplayContext } from "../../context/authDisplayContext";
 import { useNavigate } from "react-router-dom";
@@ -30,19 +30,19 @@ function Home() {
         <>
             {loadingContext ?
                 <>
-                    window.setTimeout(function () {
-                        <div class="text-center" style={{ textAlign: "center" }}>
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
+                    <div class="text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                    })
+                    </div>
                 </>
                 :
                 loggedInUser ?
                     <>
-                        <body>
-                            <Navbar bg="dark" variant="dark" className="border d-flex" style={{ height: "125px" }}>
+                        <body style={{
+                            position: "fixed", top: "0", left: "0", width: "100vw"
+                        }}>
+                            <Navbar bg="dark" variant="dark" className="" style={{ height: "125px" }}>
                                 <div className="w-25  m-1">
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
@@ -53,7 +53,7 @@ function Home() {
                                             {/* <Nav.Link href="/login">Login</Nav.Link> */}
                                             {/* <Nav.Link href="/signup">Signup</Nav.Link> */}
                                         </div>
-                                        <div>
+                                        <div >
                                             <NavDropdown title="Menu" id="navbarScrollingDropdown">
                                                 <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
                                                 <NavDropdown.Divider />
@@ -68,7 +68,7 @@ function Home() {
 
                             <div style={{ height: "90vh" }} className="d-flex">
                                 <div className="d-flex w-25 h-100 bg-secondary">
-                                    <Stack gap={2} className="mx-left align-items-center w-100 border">
+                                    <Stack gap={2} className="mx-left align-items-center w-100 border-right border-top">
                                         <ButtonGroup vertical className="w-75">
                                             <Button
                                                 variant="dark outline-secondary"
@@ -110,8 +110,12 @@ function Home() {
                                     </Stack>
                                 </div>
 
-                                <div className="d-flex h-100 bg-secondary border" style={{ width: "75vw" }}>
-                                    <Stack gap={2} className="mx-right align-items- w-100">
+                                <div className="d-flex flex-row h-100 bg-secondary border p-1" style={{
+                                    width: "75vw", overflow: "scroll",
+                                    overflowX: "hidden",
+                                    overflowY: "auto",
+                                }}>
+                                    <Stack gap={2} className="mx-right w-100">
                                         <div>
                                             <CardDisplay />
                                         </div>
