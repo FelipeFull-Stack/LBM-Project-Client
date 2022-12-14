@@ -40,9 +40,9 @@ export function Login() {
 
     return (
         <>
-            <form>
-                <div className="container text-center">
-                    <Stack gap={2} className="mx-auto p-2 w-50 mt-5 border">
+            <form className="bg-secondary">
+                <div className="container p-2 text-center" style={{height: "100vh", width: "100vw"}}>
+                    <Stack gap={2} className="mx-auto p-2 w-50 mt-5 border rounded bg-white">
                         <div>
                             <img src={logoLBMextends} alt="Logo LBM Advogacia" className="w-75" />
                         </div>
@@ -70,8 +70,8 @@ export function Login() {
                             />
                         </div>
 
-                        <Button variant="outline-primary" onClick={handleSubmit}>Conectar</Button>
-                        <Button variant="outline-secondary" onClick={() => { navigate("/signup") }}>Fazer Cadastro</Button>
+                        <Button variant="outline-dark" onClick={handleSubmit} className="w-50 align-items-center">Conectar</Button>
+                        <Button variant="outline-dark" onClick={() => { navigate("/signup") }} className="w-50">Fazer Cadastro</Button>
                     </Stack>
                 </div>
             </form>

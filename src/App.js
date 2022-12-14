@@ -19,7 +19,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro-cliente" element={<CardCustomer />} />
-          <Route path="/cadastro-processo/:customerId" element={<CardProcess />} />
+          <Route path="/cadastro-processo" element={<CardProcess />} />
           <Route path="/agendamento/:id" element={<CardMeeting />} />
           <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
         </Routes>
