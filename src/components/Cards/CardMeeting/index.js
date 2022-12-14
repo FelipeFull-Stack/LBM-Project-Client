@@ -8,10 +8,10 @@ function CardMeeting() {
 
     const navigate = useNavigate();
     const [form, setForm] = useState({
-        date: 0,
-        type: "",
+        date: "",
+        time: "",
+        type: ""
     });
-
 
 
     function handleChange(event) {
@@ -20,8 +20,8 @@ function CardMeeting() {
 
     function handleClear() {
         setForm({
-            date: 0,
-            time: 0,
+            date: "",
+            time: "",
             type: ""
         })
     }
@@ -30,14 +30,11 @@ function CardMeeting() {
         event.preventDefault();
         try {
             await api.post("/meeting", form)
-
-
+            navigate("/home");
         } catch (err) {
             console.log(`Erro no Front-end em CardMeeting: ${err}`);
         }
     }
-
-
 
     return (
         <>

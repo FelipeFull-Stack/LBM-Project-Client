@@ -32,7 +32,7 @@ function Home() {
                     <>
                         {/* <HomeLayout /> */}
                         <body>
-                            <Navbar bg="dark" variant="dark" className="align-right">
+                            <Navbar bg="dark" variant="dark" >
                                 <Container>
                                     <Nav className="me-auto">
                                         <Nav.Link href="/home">Home</Nav.Link>
@@ -48,35 +48,24 @@ function Home() {
                                     </Nav>
                                 </Container>
                             </Navbar>
-                            <aside >
-                                <ButtonGroup vertical>
-                                    <DropdownButton
-                                        as={ButtonGroup}
-                                        title="Clientes"
-                                        id="bg-vertical-dropdown-1"
-                                    >
-                                        <Dropdown.Item onClick={() => { navigate("/cadastro-cliente") }}>Novo</Dropdown.Item>
-                                    </DropdownButton>
-                                    <DropdownButton
-                                        as={ButtonGroup}
-                                        title="Processos"
-                                        id="bg-vertical-dropdown-2"
-                                    >
-                                        <Dropdown.Item onClick={() => { navigate("/cadastro-processo") }}>Novo</Dropdown.Item>
-                                    </DropdownButton>
-                                    <DropdownButton
-                                        as={ButtonGroup}
-                                        title="Reuniões"
-                                        id="bg-vertical-dropdown-3"
-                                    >
-                                        <Dropdown.Item onClick={() => { navigate("/agendamento") }}>Novo</Dropdown.Item>
-                                    </DropdownButton>
-                                </ButtonGroup>
+                            <div>
+                                <aside>
+                                    <ButtonGroup vertical>
+                                        <Button className="md-5">
+                                            Exibir Clientes
+                                        </Button>
+                                        <Button className="md-5">
+                                            Exibir Processos
+                                        </Button>
+                                        <Button className="md-5">
+                                            Exibir Reuniões
+                                        </Button>
+                                    </ButtonGroup>
+                                </aside>
+                                <content>
 
-                            </aside>
-                            <content>
-
-                            </content>
+                                </content>
+                            </div>
                         </body>
                     </>
                     :
@@ -94,8 +83,8 @@ function Home() {
                                     <p>Porfavor, certfique-se de fazer o login corretamente</p>
                                 </Modal.Body>
 
-                                <Modal.Footer>
-                                    <Button variant="primary" onClick={() => { navigate("login") }}>OK</Button>
+                                <Modal.Footer className="mv-center">
+                                    <Button variant="primary" onClick={() => { navigate("/login") }}>OK</Button>
                                 </Modal.Footer>
                             </Modal.Dialog>
                         </div>
@@ -112,3 +101,11 @@ export { Home }
     <button onClick={() => { navigate("/login") }}>Faça o Login</button>
     <button onClick={() => { navigate("/signup") }}>Faça o Cadastro</button>
 </div> */
+
+// <DropdownButton
+// as={ButtonGroup}
+// title="Clientes"
+// id="bg-vertical-dropdown-1"
+// >
+// <Dropdown.Item onClick={() => { navigate("/cadastro-cliente") }}>Novo</Dropdown.Item>
+// </DropdownButton>

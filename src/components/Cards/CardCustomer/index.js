@@ -10,11 +10,10 @@ function CardCustomer() {
     const [form, setForm] = useState({
         name: "",
         email: "",
-        cpf: 0,
-        age: 0,
-        phone: 0
+        cpf: "",
+        age: "",
+        phone: ""
     });
-
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -24,18 +23,17 @@ function CardCustomer() {
         setForm({
             name: "",
             email: "",
-            cpf: 0,
-            age: 0,
-            phone: 0
+            cpf: "",
+            age: "",
+            phone: ""
         })
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await api.post("/customer", form)
-
-
+            await api.post("/customer", form);
+            navigate("/cadastro-processo");
         } catch (err) {
             console.log(`Erro no Front-end em CardCustomer: ${err}`);
         }
@@ -43,7 +41,7 @@ function CardCustomer() {
 
     return (
         <>
-            <form>
+            <form className="m-30">
                 <Card className="text-center">
                     <Card.Header>Cadastro do Cliente</Card.Header>
                     <Card.Body>
