@@ -4,6 +4,7 @@ import {
     MDBCardBody,
     MDBCardText,
     MDBRow,
+    MDBBtn,
     MDBCol,
 } from 'mdb-react-ui-kit';
 
@@ -60,14 +61,14 @@ function CardDisplayProcess(props) {
             <MDBCol sm='6'>
                 <MDBCard style={{ width: "73vw", height: "60px" }}>
                     <MDBCardBody>
-                        {/* <MDBBtn href='#'>Go somewhere</MDBBtn> */}
                         {/* <MDBCardTitle>{name}</MDBCardTitle> */}
-                        <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "baseline" }}>
-                            <input type="radio" />
+                        <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "center" }}>
+                            {/* <input type="radio" /> */}
+                            <MDBBtn href='/cadastro-processo' style={{width: "5px", height: "10px"}}></MDBBtn>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "240px" }}>{NumProcessStyle}</div>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "80px" }}>{stringType}</div>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "150px" }}>{processValue}</div>
-                            <div style={{ fontSize: "16px", fontWeight: "700", width: "250px" }}>{stringEtapa}</div>
+                            <div style={{ fontSize: "16px", fontWeight: "700", width: "275px" }}>{stringEtapa}</div>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

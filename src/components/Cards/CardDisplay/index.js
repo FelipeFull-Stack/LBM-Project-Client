@@ -8,14 +8,14 @@ import { CardDisplayProcess } from "../DisplayCards/CardDisplayProcess";
 import { CardDisplayMeeting } from "../DisplayCards/CardDisplayMeeting";
 
 function CardDisplay() {
-
+    const navigate = useNavigate();
     const { displaySelect, setDisplaySelect } = useContext(authDisplayContext);
     const { loadingContext } = useContext(AuthContext);
     const [customerContents, setCustomerContents] = useState([]);
     const [processContents, setProcessContents] = useState([]);
     const [meetingContents, setMeetingContents] = useState([]);
 
-    console.log(`displaySelect: ${displaySelect.selected}`)
+    console.log(`displaySelect: ${displaySelect.selected}`);
 
     useEffect(() => {
         async function fetchContents() {
@@ -77,12 +77,12 @@ function CardDisplay() {
                 :
                 displaySelect.selected === "process" ?
                     <>
+
                         <div>
-                            <div>
-                                <input />
-                                <button>Pesquisar</button>
-                            </div>
+                            <input />
+                            <button>Pesquisar</button>
                         </div>
+
                         <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "6%" }}> </div>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "white" }}>Nº Processo:</div>
