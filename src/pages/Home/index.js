@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, setTimout, useEffect } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 
@@ -8,9 +8,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Stack from 'react-bootstrap/Stack';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function Home() {
     const { loggedInUser, loadingContext } = useContext(AuthContext);
@@ -26,11 +25,18 @@ function Home() {
     return (
         <>
             {loadingContext ?
-                <h1>Carregando</h1>
+                <>
+                    window.setTimeout(function () {
+                        <div class="text-center align-items-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    })
+                </>
                 :
                 loggedInUser ?
                     <>
-                        {/* <HomeLayout /> */}
                         <body>
                             <Navbar bg="dark" variant="dark" >
                                 <Container>
@@ -38,33 +44,55 @@ function Home() {
                                         <Nav.Link href="/home">Home</Nav.Link>
                                         <Nav.Link href="/login">Login</Nav.Link>
                                         <Nav.Link href="/signup">Signup</Nav.Link>
-                                        <NavDropdown title="Menu" id="navbarScrollingDropdown">
+
+                                        <NavDropdown title="Menu" id="navbarScrollingDropdown" className="">
                                             <NavDropdown.Item href="/profile">Perfil</NavDropdown.Item>
                                             <NavDropdown.Divider />
                                             <NavDropdown.Item href="#" onClick={handleLogOut}>
-                                                Logout
+                                                Log-out
                                             </NavDropdown.Item>
                                         </NavDropdown>
                                     </Nav>
                                 </Container>
                             </Navbar>
-                            <div>
-                                <aside>
-                                    <ButtonGroup vertical>
-                                        <Button className="md-5">
-                                            Exibir Clientes
-                                        </Button>
-                                        <Button className="md-5">
-                                            Exibir Processos
-                                        </Button>
-                                        <Button className="md-5">
-                                            Exibir Reuniões
-                                        </Button>
-                                    </ButtonGroup>
-                                </aside>
-                                <content>
 
-                                </content>
+                            <div style={{ height: "90vh" }} className="d-flex">
+                                <div className="d-flex w-25 h-100 bg-secondary">
+                                    <Stack gap={2} className="mx-left align-items-center w-100">
+                                        <ButtonGroup vertical className="w-75">
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1 mt-3">
+                                                Clientes
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Processos
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Reuniões
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Extra
+                                            </Button>
+                                        </ButtonGroup>
+                                    </Stack>
+                                </div>
+
+                                <div className="d-flex w-74 h-100 bg-secondary">
+                                    <Stack gap={2} className="mx-right align-items- w-100">
+                                        <h1>oi</h1>
+                                    </Stack>
+                                </div>
                             </div>
                         </body>
                     </>
