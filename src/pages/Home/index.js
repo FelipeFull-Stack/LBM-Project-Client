@@ -30,9 +30,9 @@ function Home() {
         <>
             {loadingContext ?
                 <>
-                    <div class="text-center">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                    <div className="text-center">
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </div>
                 </>
@@ -42,13 +42,13 @@ function Home() {
                         <body style={{
                             position: "fixed", top: "0", left: "0", width: "100vw"
                         }}>
-                            <Navbar bg="dark" variant="dark" className="" style={{ height: "125px" }}>
+                            <Navbar bg="dark" variant="dark" style={{ display: "flex", alignItems: "center" }}>
                                 <div className="w-25  m-1">
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
-                                <Container className="w-50 d-flex  " style={{ alignItems: "end" }}>
-                                    <Nav className=" d-flex container justify-content-end w-50" style={{ alignItems: "end" }}>
-                                        <div>
+                                <Container className="w-75 m-1" style={{ display: "flex", justifyContent: "flex-end" }}>
+                                    <Nav className="w-auto border border-secondary rounded p-2">
+                                        <div className="border-right border-secondary">
                                             <Nav.Link href="/home">Home</Nav.Link>
                                             {/* <Nav.Link href="/login">Login</Nav.Link> */}
                                             {/* <Nav.Link href="/signup">Signup</Nav.Link> */}
