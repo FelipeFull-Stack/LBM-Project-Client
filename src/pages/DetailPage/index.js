@@ -57,39 +57,108 @@ function DetailPage() {
         fetchContents();
     }, []);
 
+    function handleDelete() {
+        
+    }
+
 
     return (
         <>
-            <MDBCard className='text-center'>
-                <MDBCardHeader>
-                    <MDBTabs pills className='card-header-tabs'>
-                        <MDBTabsItem>
-                            <MDBTabsLink active>
-                                Editar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                        <MDBTabsItem>
-                            <MDBTabsLink>
-                                Deletar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                        {/* <MDBTabsItem>
-                            <MDBTabsLink className='disabled'>
-                                Disabled
-                            </MDBTabsLink>
-                        </MDBTabsItem> */}
-                    </MDBTabs>
-                </MDBCardHeader>
-                <MDBCardBody>
-                    <MDBCardTitle>Clientes/Processos/Reuniões</MDBCardTitle>
-                    <MDBCardText>
-                        Conteúdo do :
-                    </MDBCardText>
-                    <MDBBtn>Criar</MDBBtn>
-                    <MDBBtn>Limpar</MDBBtn>
-                    <MDBBtn>Voltar</MDBBtn>
-                </MDBCardBody>
-            </MDBCard>
+            {objectId.type === "customer" ? //é um cliente?
+                <MDBCard className='text-center'>
+                    <MDBCardHeader>
+                        <MDBTabs pills className='card-header-tabs'>
+                            <MDBTabsItem>
+                                <MDBTabsLink active>
+                                    Visualizar
+                                </MDBTabsLink>
+                            </MDBTabsItem>
+                            <MDBTabsItem>
+                                <MDBTabsLink>
+                                    Editar
+                                </MDBTabsLink>
+                            </MDBTabsItem>
+                            <MDBTabsItem>
+                                <MDBTabsLink>
+                                    Deletar
+                                </MDBTabsLink>
+                            </MDBTabsItem>
+                        </MDBTabs>
+                    </MDBCardHeader>
+                    <MDBCardBody>
+                        <MDBCardTitle>Cliente</MDBCardTitle>
+                        <MDBCardText>
+                            Conteúdo do :
+                        </MDBCardText>
+                        <MDBBtn>Criar</MDBBtn>
+                        <MDBBtn>Limpar</MDBBtn>
+                        <MDBBtn>Voltar</MDBBtn>
+                    </MDBCardBody>
+                </MDBCard>
+                : //se não for cliente
+                objectId === "process" ? //é um processo?
+                    <MDBCard className='text-center'>
+                        <MDBCardHeader>
+                            <MDBTabs pills className='card-header-tabs'>
+                                <MDBTabsItem>
+                                    <MDBTabsLink active>
+                                        Visualizar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                                <MDBTabsItem>
+                                    <MDBTabsLink>
+                                        Editar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                                <MDBTabsItem>
+                                    <MDBTabsLink>
+                                        Deletar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                            </MDBTabs>
+                        </MDBCardHeader>
+                        <MDBCardBody>
+                            <MDBCardTitle>Processo</MDBCardTitle>
+                            <MDBCardText>
+                                Conteúdo do :
+                            </MDBCardText>
+                            <MDBBtn>Criar</MDBBtn>
+                            <MDBBtn>Limpar</MDBBtn>
+                            <MDBBtn>Voltar</MDBBtn>
+                        </MDBCardBody>
+                    </MDBCard>
+                    : //se não for processo, deve ser uma reunião
+                    <MDBCard className='text-center'>
+                        <MDBCardHeader>
+                            <MDBTabs pills className='card-header-tabs'>
+                                <MDBTabsItem>
+                                    <MDBTabsLink active>
+                                        Visualizar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                                <MDBTabsItem>
+                                    <MDBTabsLink>
+                                        Editar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                                <MDBTabsItem>
+                                    <MDBTabsLink onClick={handleDelete}>
+                                        Deletar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                            </MDBTabs>
+                        </MDBCardHeader>
+                        <MDBCardBody>
+                            <MDBCardTitle>Reunião</MDBCardTitle>
+                            <MDBCardText>
+                                Conteúdo do :
+                            </MDBCardText>
+                            <MDBBtn onClick={() => { navigate("/agendamento") }}>Novo</MDBBtn>
+                            <MDBBtn>Limpar</MDBBtn>
+                            <MDBBtn>Voltar</MDBBtn>
+                        </MDBCardBody>
+                    </MDBCard>
+            }
         </>
     )
 }

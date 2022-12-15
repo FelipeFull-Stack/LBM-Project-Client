@@ -5,7 +5,8 @@ const infoContext = createContext();
 function InfoContextComponent(props) {
 
     const [objectId, setObjectId] = useState({
-        idSelected: ""
+        idSelected: "",
+        type: ""
     });
 
     return (

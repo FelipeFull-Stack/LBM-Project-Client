@@ -72,7 +72,7 @@ function CardDisplayProcess(props) {
                                 className="btn btn-outline-success rounded border"
                                 stype={{ width: "5px", height: "5px" }}
                                 onClick={() => {
-                                    setObjectId({ idSelected: id })
+                                    setObjectId({ idSelected: id, type: "process" })
                                     navigate("/agendamento")
                                 }}
                             ></button>
