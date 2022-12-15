@@ -32,7 +32,6 @@ function DetailPage() {
 
 
 
-
     useEffect(() => {
         async function fetchContents() {
             try {
@@ -58,7 +57,7 @@ function DetailPage() {
     }, []);
 
     function handleDelete() {
-        
+
     }
 
 
@@ -86,9 +85,23 @@ function DetailPage() {
                         </MDBTabs>
                     </MDBCardHeader>
                     <MDBCardBody>
-                        <MDBCardTitle>Cliente</MDBCardTitle>
+                        <MDBCardTitle>{customerContents[0].name}</MDBCardTitle>
                         <MDBCardText>
-                            Conteúdo do :
+                            <div>{customerContents[0].cpf}</div>
+                            <div>{customerContents[0].age}</div>
+                            <div>{customerContents[0].email}</div>
+                            <div>{customerContents[0].phone}</div>
+                            <div>{customerContents[0].advogado}</div>
+                            <div>
+                                {customerContents[0].processes.map((currentElement) => {
+                                    return (<article>currentElement</article>)
+                                })}
+                            </div>
+                            <div>
+                                {customerContents[0].meetings.map((currentElement) => {
+                                    return (<article>currentElement</article>)
+                                })}
+                            </div>
                         </MDBCardText>
                         <MDBBtn>Criar</MDBBtn>
                         <MDBBtn>Limpar</MDBBtn>
@@ -120,7 +133,15 @@ function DetailPage() {
                         <MDBCardBody>
                             <MDBCardTitle>Processo</MDBCardTitle>
                             <MDBCardText>
-                                Conteúdo do :
+                                <div>Nº do processo: {processContents[0].numProcess}</div>
+                                <div>Tipo do process: {processContents[0].type}</div>
+                                <div>Valor: {processContents[0].value}</div>
+                                <div>Etapa atual: {processContents[0].etapa}</div>
+                                <div>Comarca: {processContents[0].comarca}</div>
+                                <div>Advogado: {processContents[0].advogado}</div>
+                                <div>Nome do Cliente: {processContents[0].customer}</div>
+                                <div>CPF do Cliente: {processContents[0].cpf}</div>
+                                <div>Reunião: {processContents[0].meeting}</div>
                             </MDBCardText>
                             <MDBBtn>Criar</MDBBtn>
                             <MDBBtn>Limpar</MDBBtn>
@@ -151,7 +172,12 @@ function DetailPage() {
                         <MDBCardBody>
                             <MDBCardTitle>Reunião</MDBCardTitle>
                             <MDBCardText>
-                                Conteúdo do :
+                                <div>Data marcada: {meetingContents[0].date}</div>
+                                <div>Horário: {meetingContents[0].time}</div>
+                                <div>Tema: {meetingContents[0].type}</div>
+                                <div>Advogado: {meetingContents[0].advogado}</div>
+                                <div>Cliente: {meetingContents[0].customer}</div> {/*Como eu consigo pegar o nome do Cliente pelo ID?*/}
+                                <div>Nº do Processo: {meetingContents[0].process}</div> {/*Como eu consigo pegar o nome do Cliente pelo ID?*/}
                             </MDBCardText>
                             <MDBBtn onClick={() => { navigate("/agendamento") }}>Novo</MDBBtn>
                             <MDBBtn>Limpar</MDBBtn>
