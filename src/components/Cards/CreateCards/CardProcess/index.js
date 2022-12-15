@@ -8,6 +8,7 @@ function CardProcess() {
 
     const navigate = useNavigate();
     const [form, setForm] = useState({
+        cpf: "",
         numProcess: "",
         type: "",
         value: "",
@@ -21,6 +22,7 @@ function CardProcess() {
 
     function handleClear() {
         setForm({
+            cpf: "",
             numProcess: "",
             type: "",
             value: "",
@@ -45,6 +47,12 @@ function CardProcess() {
                 <Card className="text-center">
                     <Card.Header>Cadastro do Processo</Card.Header>
                     <Card.Body>
+                        <div>
+                            <label htmlFor="input-cpf"></label>
+                            <input
+                                id="input-cpf"
+                            />
+                        </div>
                         <div>
                             <label htmlFor="input-numProcess">Nº do Processo: </label>
                             <input
