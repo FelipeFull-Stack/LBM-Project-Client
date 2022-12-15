@@ -1,7 +1,7 @@
-import { api } from "../../../api/api";
+import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import { authDisplayContext } from "../../../context/authDisplayContext";
-import { AuthContext } from "../../../context/authContext";
+import { authDisplayContext } from "../../context/authDisplayContext";
+import { AuthContext } from "../../context/authContext";
 import { useContext, useEffect, useState } from "react";
 // import { CardDisplayCustomer } from "../DisplayCards/CardDisplayCustomer";
 // import { CardDisplayProcess } from "../DisplayCards/CardDisplayProcess";
@@ -31,7 +31,7 @@ function DetailPage() {
     const [meetingContents, setMeetingContents] = useState([]);
 
 
-    
+
     useEffect(() => {
         async function fetchContents() {
             try {
