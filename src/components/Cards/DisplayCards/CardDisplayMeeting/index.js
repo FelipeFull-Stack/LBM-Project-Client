@@ -44,12 +44,12 @@ function CardDisplayMeeting(props) {
                                 stype={{ width: "5px", height: "5px" }}
                                 onClick={() => {
                                     setObjectId({idSelected: id, type: "meeting"})
-                                    navigate("/agendamento")
+                                    navigate(`/detalhe/${id}`)
                                 }}
                             ></button>
-                            <div style={{ fontSize: "18px", fontWeight: "700", width: "30%" }}>{stringData}</div>
-                            <div style={{ fontSize: "18px", fontWeight: "700", width: "17.5%" }}>{time}</div>
-                            <div style={{ fontSize: "18px", fontWeight: "700", width: "35%" }}>{stringType}</div>
+                            <div style={{ fontSize: "16px", fontWeight: "700", width: "30%" }}>{stringData}</div>
+                            <div style={{ fontSize: "16px", fontWeight: "700", width: "17.5%" }}>{time}</div>
+                            <div style={{ fontSize: "16px", fontWeight: "700", width: "35%" }}>{stringType}</div>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

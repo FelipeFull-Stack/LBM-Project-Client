@@ -1,8 +1,8 @@
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { infoContext } from "../../context/infoContext";
-import { AuthContext } from "../../context/authContext";
 import { useContext, useEffect, useState } from "react";
+// import { AuthContext } from "../../context/authContext";
 // import { CardDisplayCustomer } from "../DisplayCards/CardDisplayCustomer";
 // import { CardDisplayProcess } from "../DisplayCards/CardDisplayProcess";
 // import { CardDisplayMeeting } from "../DisplayCards/CardDisplayMeeting";
@@ -18,16 +18,34 @@ import {
     MDBBtn,
     MDBTabsLink
 } from 'mdb-react-ui-kit';
-import Button from 'react-bootstrap/Button';
-import Stack from 'react-bootstrap/Stack';
+// import Button from 'react-bootstrap/Button';
+// import Stack from 'react-bootstrap/Stack';
 
 function DetailPage() {
 
     const navigate = useNavigate();
     const { objectId } = useContext(infoContext);
-    const [customerContents, setCustomerContents] = useState([]);
-    const [processContents, setProcessContents] = useState([]);
-    const [meetingContents, setMeetingContents] = useState([]);
+    const [customerContents, setCustomerContents] = useState({
+        name: "",
+        email: "",
+        cpf: "",
+        age: "",
+        phone: "",
+        advogado: {},
+        processes: [],
+        meetings: [],
+    });
+    const [processContents, setProcessContents] = useState({
+        numProcess: "",
+        type: "",
+        value: "",
+        etapa: "",
+        comarca: "",
+        advogado: {},
+        customer: {},
+        meeting: {}
+    });
+    const [meetingContents, setMeetingContents] = useState({});
 
 
 
@@ -35,20 +53,18 @@ function DetailPage() {
     useEffect(() => {
         async function fetchContents() {
             try {
-                const responseCustomer = await api.get("/customer/objectId");
-                const responseProcess = await api.get("/process/objectId");
-                const responseMeeting = await api.get("/meeting/objectId");
-                setCustomerContents(responseCustomer.data);
-                setProcessContents(responseProcess.data);
-                setMeetingContents(responseMeeting.data);
-                // if (displaySelect.selected === "customer") {
-
-                // }
-                // if (displaySelect.selected === "process") {
-
-                // }
-                // if (displaySelect.selected === "meeting") {
-                // }
+                if (objectId.type === "customer") {
+                    const responseCustomer = await api.get(`/customer/${objectId.idSelected}`);
+                    setCustomerContents(responseCustomer.data);
+                }
+                if (objectId.type === "process") {
+                    const responseProcess = await api.get(`/process/${objectId.idSelected}`);
+                    setProcessContents(responseProcess.data);
+                }
+                if (objectId.type === "meeting") {
+                    const responseMeeting = await api.get(`/meeting/${objectId.idSelected}`);
+                    setMeetingContents(responseMeeting.data);
+                }
             } catch (err) {
                 console.log(`Erro no Front-end - CardDisplay : ${err}`);
             }
@@ -60,130 +76,148 @@ function DetailPage() {
 
     }
 
-
+    console.log("CustomerContents", customerContents)
     return (
         <>
             {objectId.type === "customer" ? //é um cliente?
-                <MDBCard className='text-center'>
-                    <MDBCardHeader>
-                        <MDBTabs pills className='card-header-tabs'>
-                            <MDBTabsItem>
-                                <MDBTabsLink active>
-                                    Visualizar
-                                </MDBTabsLink>
-                            </MDBTabsItem>
-                            <MDBTabsItem>
-                                <MDBTabsLink>
-                                    Editar
-                                </MDBTabsLink>
-                            </MDBTabsItem>
-                            <MDBTabsItem>
-                                <MDBTabsLink>
-                                    Deletar
-                                </MDBTabsLink>
-                            </MDBTabsItem>
-                        </MDBTabs>
-                    </MDBCardHeader>
-                    <MDBCardBody>
-                        <MDBCardTitle>{customerContents[0].name}</MDBCardTitle>
-                        <MDBCardText>
-                            <div>{customerContents[0].cpf}</div>
-                            <div>{customerContents[0].age}</div>
-                            <div>{customerContents[0].email}</div>
-                            <div>{customerContents[0].phone}</div>
-                            <div>{customerContents[0].advogado}</div>
-                            <div>
-                                {customerContents[0].processes.map((currentElement) => {
-                                    return (<article>currentElement</article>)
-                                })}
+                customerContents === {} ?
+                    <h1>Carregando</h1>
+                    :
+                    <MDBCard className='text-center'>
+                        <MDBCardHeader>
+                            <MDBTabs pills className='card-header-tabs'>
+                                <MDBTabsItem style={{ width: "15vw" }}>
+                                    <MDBTabsLink active className="text-bg-primary">
+                                        Visualizar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                                <MDBTabsItem style={{ width: "15vw" }}>
+                                    <MDBTabsLink className="text-bg-warning">
+                                        Editar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                                <MDBTabsItem style={{ width: "15vw" }}>
+                                    <MDBTabsLink className="text-bg-danger">
+                                        Deletar
+                                    </MDBTabsLink>
+                                </MDBTabsItem>
+                            </MDBTabs>
+                        </MDBCardHeader>
+                        <MDBCardBody>
+                            <MDBCardTitle>{customerContents.name}</MDBCardTitle>
+                            <MDBCardText>
+                                <div>CPF: {customerContents.cpf}</div>
+                                <div>Idade: {customerContents.age} anos</div>
+                                <div>E-mail: {customerContents.email}</div>
+                                <div>Número de Contato: {customerContents.phone}</div>
+                                <div>Advogado Principal: {customerContents.advogado.name}</div>
+                                <div>
+                                    {customerContents.processes.map((currentElement) => {
+                                        let stringP = currentElement.numProcess;
+                                        stringP = stringP.toString();
+                                        stringP = stringP.split("");
+                                        const NumProcessStyle = `${stringP[0]}${stringP[1]}${stringP[2]}${stringP[3]}${stringP[4]}${stringP[5]}${stringP[6]}.${stringP[7]}${stringP[8]}.${stringP[9]}${stringP[10]}${stringP[11]}${stringP[12]}.${stringP[13]}.${stringP[14]}${stringP[15]}.${stringP[16]}${stringP[17]}${stringP[18]}${stringP[19]}`;
+
+                                        return (
+                                            <article><p>Nº do Processo: {NumProcessStyle}</p></article>
+                                        )
+                                    })}
+                                </div>
+                                <div>
+                                    {customerContents.meetings.map((currentElement) => {
+                                        let stringData = "";
+                                        for (let i = 0; i < 10; i++) {
+                                            stringData += currentElement.date[i];
+                                        }
+                                        return (
+                                            <article><p>Reunião marcada para: {stringData}</p></article>
+                                        )
+                                    })}
+                                </div>
+                            </MDBCardText>
+                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                                <MDBBtn style={{ width: "10vw" }}>Limpar</MDBBtn>
+                                <MDBBtn style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</MDBBtn>
                             </div>
-                            <div>
-                                {customerContents[0].meetings.map((currentElement) => {
-                                    return (<article>currentElement</article>)
-                                })}
-                            </div>
-                        </MDBCardText>
-                        <MDBBtn>Criar</MDBBtn>
-                        <MDBBtn>Limpar</MDBBtn>
-                        <MDBBtn>Voltar</MDBBtn>
-                    </MDBCardBody>
-                </MDBCard>
+                        </MDBCardBody>
+                    </MDBCard>
                 : //se não for cliente
-                objectId === "process" ? //é um processo?
-                    <MDBCard className='text-center'>
-                        <MDBCardHeader>
-                            <MDBTabs pills className='card-header-tabs'>
-                                <MDBTabsItem>
-                                    <MDBTabsLink active>
-                                        Visualizar
-                                    </MDBTabsLink>
-                                </MDBTabsItem>
-                                <MDBTabsItem>
-                                    <MDBTabsLink>
-                                        Editar
-                                    </MDBTabsLink>
-                                </MDBTabsItem>
-                                <MDBTabsItem>
-                                    <MDBTabsLink>
-                                        Deletar
-                                    </MDBTabsLink>
-                                </MDBTabsItem>
-                            </MDBTabs>
-                        </MDBCardHeader>
-                        <MDBCardBody>
-                            <MDBCardTitle>Processo</MDBCardTitle>
-                            <MDBCardText>
-                                <div>Nº do processo: {processContents[0].numProcess}</div>
-                                <div>Tipo do process: {processContents[0].type}</div>
-                                <div>Valor: {processContents[0].value}</div>
-                                <div>Etapa atual: {processContents[0].etapa}</div>
-                                <div>Comarca: {processContents[0].comarca}</div>
-                                <div>Advogado: {processContents[0].advogado}</div>
-                                <div>Nome do Cliente: {processContents[0].customer}</div>
-                                <div>CPF do Cliente: {processContents[0].cpf}</div>
-                                <div>Reunião: {processContents[0].meeting}</div>
-                            </MDBCardText>
-                            <MDBBtn>Criar</MDBBtn>
-                            <MDBBtn>Limpar</MDBBtn>
-                            <MDBBtn>Voltar</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
+                objectId.type === "process" ? //é um processo?
+                    processContents === {} ?
+                        <h1>Carregando</h1>
+                        :
+                        <MDBCard className='text-center'>
+                            <MDBCardHeader>
+                                <MDBTabs pills className='card-header-tabs'>
+                                    <MDBTabsItem style={{ width: "15vw" }}>
+                                        <MDBTabsLink active className="text-bg-primary">
+                                            Visualizar
+                                        </MDBTabsLink>
+                                    </MDBTabsItem>
+                                    <MDBTabsItem style={{ width: "15vw" }}>
+                                        <MDBTabsLink className="text-bg-warning">
+                                            Editar
+                                        </MDBTabsLink>
+                                    </MDBTabsItem>
+                                    <MDBTabsItem style={{ width: "15vw" }}>
+                                        <MDBTabsLink className="text-bg-danger">
+                                            Deletar
+                                        </MDBTabsLink>
+                                    </MDBTabsItem>
+                                </MDBTabs>
+                            </MDBCardHeader>
+                            <MDBCardBody>
+                                <MDBCardTitle>Processo</MDBCardTitle>
+                                <MDBCardText>
+                                    <div>Nº do processo: {processContents.numProcess}</div>
+                                    <div>Tipo do process: {processContents.type}</div>
+                                    <div>Valor: R${processContents.value},00</div>
+                                    <div>Etapa atual: {processContents.etapa}</div>
+                                    <div>Comarca: {processContents.comarca}</div>
+                                    <div>Advogado do Processo: {processContents.advogado.name}</div>
+                                    <div>Nome do Cliente: {processContents.customer.name}</div>
+                                    <div>CPF do Cliente: {processContents.customer.cpf}</div>
+                                    <div>Reunião datada para: {processContents.meeting.date}</div>
+                                </MDBCardText>
+                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                                    <MDBBtn style={{ width: "10vw" }}>Limpar</MDBBtn>
+                                    <MDBBtn style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</MDBBtn>
+                                </div>
+                            </MDBCardBody>
+                        </MDBCard>
                     : //se não for processo, deve ser uma reunião
-                    <MDBCard className='text-center'>
-                        <MDBCardHeader>
-                            <MDBTabs pills className='card-header-tabs'>
-                                <MDBTabsItem>
-                                    <MDBTabsLink active>
-                                        Visualizar
-                                    </MDBTabsLink>
-                                </MDBTabsItem>
-                                <MDBTabsItem>
-                                    <MDBTabsLink>
-                                        Editar
-                                    </MDBTabsLink>
-                                </MDBTabsItem>
-                                <MDBTabsItem>
-                                    <MDBTabsLink onClick={handleDelete}>
-                                        Deletar
-                                    </MDBTabsLink>
-                                </MDBTabsItem>
-                            </MDBTabs>
-                        </MDBCardHeader>
-                        <MDBCardBody>
-                            <MDBCardTitle>Reunião</MDBCardTitle>
-                            <MDBCardText>
-                                <div>Data marcada: {meetingContents[0].date}</div>
-                                <div>Horário: {meetingContents[0].time}</div>
-                                <div>Tema: {meetingContents[0].type}</div>
-                                <div>Advogado: {meetingContents[0].advogado}</div>
-                                <div>Cliente: {meetingContents[0].customer}</div> {/*Como eu consigo pegar o nome do Cliente pelo ID?*/}
-                                <div>Nº do Processo: {meetingContents[0].process}</div> {/*Como eu consigo pegar o nome do Cliente pelo ID?*/}
-                            </MDBCardText>
-                            <MDBBtn onClick={() => { navigate("/agendamento") }}>Novo</MDBBtn>
-                            <MDBBtn>Limpar</MDBBtn>
-                            <MDBBtn>Voltar</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
+                    meetingContents === {} ?
+                        <h1>Carregando</h1>
+                        :
+                        <MDBCard className='text-center'>
+                            <MDBCardHeader>
+                                <MDBTabs pills className='card-header-tabs'>
+                                    <MDBTabsItem style={{ width: "15vw" }}>
+                                        <MDBTabsLink active className="text-bg-primary">
+                                            Visualizar
+                                        </MDBTabsLink>
+                                    </MDBTabsItem>
+                                    <MDBTabsItem style={{ width: "15vw" }}>
+                                        <MDBTabsLink className="text-bg-warning">
+                                            Editar
+                                        </MDBTabsLink>
+                                    </MDBTabsItem>
+                                    <MDBTabsItem style={{ width: "15vw" }}>
+                                        <MDBTabsLink className="text-bg-danger">
+                                            Deletar
+                                        </MDBTabsLink>
+                                    </MDBTabsItem>
+                                </MDBTabs>
+                            </MDBCardHeader>
+                            <MDBCardBody>
+                                <MDBCardTitle>Reunião</MDBCardTitle>
+
+                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                                    <MDBBtn style={{ width: "10vw" }}>Limpar</MDBBtn>
+                                    <MDBBtn style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</MDBBtn>
+                                </div>
+                            </MDBCardBody>
+                        </MDBCard>
             }
         </>
     )

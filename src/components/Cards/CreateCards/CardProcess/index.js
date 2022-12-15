@@ -2,13 +2,13 @@ import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { api } from "../../../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function CardProcess() {
 
+    const params = useParams();
     const navigate = useNavigate();
     const [form, setForm] = useState({
-        cpf: "",
         numProcess: "",
         type: "",
         value: "",
@@ -22,7 +22,6 @@ function CardProcess() {
 
     function handleClear() {
         setForm({
-            cpf: "",
             numProcess: "",
             type: "",
             value: "",
@@ -34,8 +33,8 @@ function CardProcess() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await api.post("/process", form)
-            navigate("/home");
+            const responseId = await api.post(`/process/${params.id}`, form)
+            navigate(`/agendamento/${responseId.data.customer}`);
         } catch (err) {
             console.log(`Erro no Front-end em CardProcess: ${err}`);
         }
@@ -48,12 +47,6 @@ function CardProcess() {
                     <Card.Header>Cadastro do Processo</Card.Header>
                     <Card.Body>
                         <div>
-                            <label htmlFor="input-cpf"></label>
-                            <input
-                                id="input-cpf"
-                            />
-                        </div>
-                        <div>
                             <label htmlFor="input-numProcess">Nº do Processo: </label>
                             <input
                                 id="input-numProcess"
@@ -61,7 +54,6 @@ function CardProcess() {
                                 name="numProcess"
                                 value={form.numProcess}
                                 onChange={handleChange}
-                                required
                                 placeholder="_______.__.____._.__.____"
                                 minLength="20"
                                 maxLength="20"
@@ -70,7 +62,10 @@ function CardProcess() {
                         <div>
                             <select
                                 name="type"
+                                value={form.type}
+                                onChange={handleChange}
                             >
+                                <option>Escolha o tipo do processo</option>
                                 <option value="CONHECIMENTO">Conhecimento</option>
                                 <option value="CAUTELAR">Cautelar</option>
                                 <option value="EXECUCAO">Execução</option>
@@ -84,14 +79,16 @@ function CardProcess() {
                                 name="value"
                                 value={form.value}
                                 onChange={handleChange}
-                                required
                             />
                         </div>
                         <div>
                             <label htmlFor="input-etapa">Etapa: </label>
                             <select
                                 name="etapa"
+                                value={form.etapa}
+                                onChange={handleChange}
                             >
+                                <option>Escolha a etapa do processo</option>
                                 <option value="PETICAO INICIAL">Petição Inicial</option>
                                 <option value="CITACAO">Citação</option>
                                 <option value="REPLICA">Réplica</option>

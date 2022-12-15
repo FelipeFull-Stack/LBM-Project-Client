@@ -73,7 +73,7 @@ function CardDisplayProcess(props) {
                                 stype={{ width: "5px", height: "5px" }}
                                 onClick={() => {
                                     setObjectId({ idSelected: id, type: "process" })
-                                    navigate("/agendamento")
+                                    navigate(`/detalhe/${id}`)
                                 }}
                             ></button>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{NumProcessStyle}</div>

@@ -2,10 +2,10 @@ import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { api } from "../../../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function CardMeeting() {
-
+    const params = useParams();
     const navigate = useNavigate();
     const [form, setForm] = useState({
         date: "",
@@ -29,7 +29,7 @@ function CardMeeting() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await api.post("/meeting", form)
+            await api.post(`/meeting/${params.id}`, form)
             navigate("/home");
         } catch (err) {
             console.log(`Erro no Front-end em CardMeeting: ${err}`);
@@ -51,7 +51,6 @@ function CardMeeting() {
                                 name="date"
                                 value={form.date}
                                 onChange={handleChange}
-                                required
                             />
                         </div>
 
@@ -59,7 +58,8 @@ function CardMeeting() {
                             <label>Horário: </label>
                             <select
                                 name="time"
-                                required
+                                value={form.time}
+                                onChange={handleChange}
                             >
                                 <option>Selecione um Horário</option>
                                 <option value="0">00:00</option>
@@ -116,6 +116,8 @@ function CardMeeting() {
                         <div>
                             <select
                                 name="type"
+                                value={form.type}
+                                onChange={handleChange}
                             >
                                 <option value="CONCILIACAO OU MEDIACAO">Conciliação ou Mediação</option>
                                 <option value="INSTRUCAO E JULGAMENTO">Instrução e Julgamento</option>

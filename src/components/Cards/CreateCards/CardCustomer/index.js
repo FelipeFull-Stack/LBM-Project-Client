@@ -32,8 +32,8 @@ function CardCustomer() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await api.post("/customer", form);
-            navigate("/cadastro-processo");
+            const responseId = await api.post("/customer", form);
+            navigate(`/cadastro-processo/${responseId.data._id}`);
         } catch (err) {
             console.log(`Erro no Front-end em CardCustomer: ${err}`);
         }

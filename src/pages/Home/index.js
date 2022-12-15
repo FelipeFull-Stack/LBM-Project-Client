@@ -90,8 +90,8 @@ function Home() {
                                             >
                                                 Reuniões
                                             </Button>
-                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
-                                                Extra
+                                            <Button onClick={()=> {navigate("/cadastro-cliente")}} variant="dark outline-secondary" className="p-2 rounded my-1">
+                                                Cadastro
                                             </Button>
                                             <Button variant="dark outline-secondary" className="p-2 rounded my-1">
                                                 Extra
@@ -109,8 +109,10 @@ function Home() {
                                     </Stack>
                                 </div>
 
-                                <div className="d-flex flex-row h-100 bg-secondary border p-1" style={{
-                                    width: "75vw", overflow: "scroll",
+                                <div className="d-block flex-row bg-secondary border p-1 " style={{
+                                    width: "75vw",
+                                    height: "78.5vh",
+                                    overflow: "scroll",
                                     overflowX: "hidden",
                                     overflowY: "auto",
                                 }}>
