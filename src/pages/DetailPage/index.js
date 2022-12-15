@@ -45,10 +45,14 @@ function DetailPage() {
         customer: {},
         meeting: {}
     });
-    const [meetingContents, setMeetingContents] = useState({});
-
-
-
+    const [meetingContents, setMeetingContents] = useState({
+        date: "",
+        time: "",
+        type: "",
+        advogado: {},
+        customer: {},
+        process: {}
+    });
 
     useEffect(() => {
         async function fetchContents() {
@@ -211,7 +215,14 @@ function DetailPage() {
                             </MDBCardHeader>
                             <MDBCardBody>
                                 <MDBCardTitle>Reunião</MDBCardTitle>
-
+                                <MDBCardText>
+                                    <div>Data marcada: {meetingContents.date}</div>
+                                    <div>Horário combinado: {meetingContents.time}</div>
+                                    <div>Tema da Reunião: {meetingContents.type}</div>
+                                    <div>Advogado: {meetingContents.advogado.name}</div>
+                                    <div>Cliente: {meetingContents.customer.name}</div>
+                                    <div>Nº do Processo: {meetingContents.process.numProcess}</div>
+                                </MDBCardText>
                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                     <MDBBtn style={{ width: "10vw" }}>Limpar</MDBBtn>
                                     <MDBBtn style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</MDBBtn>
