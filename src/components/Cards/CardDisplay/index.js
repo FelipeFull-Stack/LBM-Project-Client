@@ -55,14 +55,24 @@ function CardDisplay() {
                             {/* {setDisplaySelect({ selected: "" })} */}
                             {console.log(customerContents)}
                             <div>
+                                <input className="rounded" />
+                                <button className="rounded">Pesquisar</button>
+                            </div>
 
+                            <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "30%", color: "white" }}>Nome Completo:</div>
+                                <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "16.5%", color: "white" }}>CPF:</div>
+                                <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "25%", color: "white" }}>Contato:</div>
                             </div>
                             {customerContents.map((currentElement) => {
                                 return (
                                     <>
                                         <CardDisplayCustomer
-                                            cpf={currentElement.cpf}
                                             name={currentElement.name}
+                                            cpf={currentElement.cpf}
                                             age={currentElement.age}
                                             email={currentElement.email}
                                             phone={currentElement.phone}
@@ -79,17 +89,17 @@ function CardDisplay() {
                     <>
 
                         <div>
-                            <input />
-                            <button>Pesquisar</button>
+                            <input className="rounded" />
+                            <button className="rounded">Pesquisar</button>
                         </div>
 
                         <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "6%" }}> </div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "white" }}>Nº Processo:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "9%", color: "white" }}>Tipo:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "15%", color: "white" }}>Valor:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "white" }}>Valor:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "16%", color: "white" }}>Etapa:</div>
                         </div>
@@ -108,7 +118,19 @@ function CardDisplay() {
                     :
                     <>
                         <div>
+                            <input className="rounded" />
+                            <button className="rounded">Pesquisar</button>
+                        </div>
 
+                        <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "white" }}>Nº Processo:</div>
+                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "9%", color: "white" }}>Tipo:</div>
+                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "white" }}>Valor:</div>
+                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "16%", color: "white" }}>Etapa:</div>
                         </div>
                         {meetingContents.map((currentElement) => {
                             return <CardDisplayMeeting

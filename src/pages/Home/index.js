@@ -30,9 +30,9 @@ function Home() {
         <>
             {loadingContext ?
                 <>
-                    <div class="text-center">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                    <div className="text-center">
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </div>
                 </>
@@ -47,8 +47,8 @@ function Home() {
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
                                 <Container className="w-75 m-1" style={{ display: "flex", justifyContent: "flex-end" }}>
-                                    <Nav>
-                                        <div>
+                                    <Nav className="w-auto border border-secondary rounded p-2">
+                                        <div className="border-right border-secondary">
                                             <Nav.Link href="/home">Home</Nav.Link>
                                             {/* <Nav.Link href="/login">Login</Nav.Link> */}
                                             {/* <Nav.Link href="/signup">Signup</Nav.Link> */}

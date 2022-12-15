@@ -53,6 +53,7 @@ function CardCustomer() {
                                 name="name"
                                 value={form.name}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
 
@@ -65,6 +66,7 @@ function CardCustomer() {
                                 value={form.email}
                                 onChange={handleChange}
                                 placeholder="exemplo@email.com"
+                                required
                             />
                         </div>
 
@@ -75,8 +77,11 @@ function CardCustomer() {
                                 type="number"
                                 name="cpf"
                                 value={form.cpf}
+                                minLength="11"
+                                maxLength="11"
                                 onChange={handleChange}
                                 placeholder="___.___.___-__"
+                                required
                             />
                         </div>
 
@@ -99,6 +104,8 @@ function CardCustomer() {
                                 name="phone"
                                 value={form.phone}
                                 onChange={handleChange}
+                                minLength="11"
+                                maxLength="11"
                                 placeholder="(__) _ ____-____"
                             />
                         </div>

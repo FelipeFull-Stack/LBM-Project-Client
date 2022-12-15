@@ -4,8 +4,7 @@ import {
     MDBCardBody,
     MDBCardText,
     MDBRow,
-    MDBBtn,
-    MDBCol,
+    MDBCol
 } from 'mdb-react-ui-kit';
 
 function CardDisplayProcess(props) {
@@ -62,13 +61,13 @@ function CardDisplayProcess(props) {
                 <MDBCard style={{ width: "73vw", height: "60px" }}>
                     <MDBCardBody>
                         {/* <MDBCardTitle>{name}</MDBCardTitle> */}
-                        <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "center" }}>
+                        <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             {/* <input type="radio" /> */}
-                            <MDBBtn href='/cadastro-processo' style={{width: "5px", height: "10px"}}></MDBBtn>
-                            <div style={{ fontSize: "16px", fontWeight: "700", width: "240px" }}>{NumProcessStyle}</div>
-                            <div style={{ fontSize: "16px", fontWeight: "700", width: "80px" }}>{stringType}</div>
-                            <div style={{ fontSize: "16px", fontWeight: "700", width: "150px" }}>{processValue}</div>
-                            <div style={{ fontSize: "16px", fontWeight: "700", width: "275px" }}>{stringEtapa}</div>
+                            <button className="btn btn-outline-success rounded border" stype={{width: "5px", height: "5px"}}></button>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{NumProcessStyle}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "13%" }}>{stringType}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "18%" }}>{processValue}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{stringEtapa}</div>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

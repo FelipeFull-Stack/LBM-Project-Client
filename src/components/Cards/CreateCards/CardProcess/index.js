@@ -53,6 +53,10 @@ function CardProcess() {
                                 name="numProcess"
                                 value={form.numProcess}
                                 onChange={handleChange}
+                                required
+                                placeholder="_______.__.____._.__.____"
+                                minLength="20"
+                                maxLength="20"
                             />
                         </div>
                         <div>
@@ -72,6 +76,7 @@ function CardProcess() {
                                 name="value"
                                 value={form.value}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
                         <div>
