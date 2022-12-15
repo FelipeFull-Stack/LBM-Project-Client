@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Signup } from "./pages/Signup";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
+import { DetailPage } from "./pages/DetailPage";
 import { CardCustomer } from "./components/Cards/CreateCards/CardCustomer";
 import { CardProcess } from "./components/Cards/CreateCards/CardProcess";
 import { CardMeeting } from "./components/Cards/CreateCards/CardMeeting";
@@ -21,8 +22,9 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro-cliente" element={<CardCustomer />} />
-            <Route path="/cadastro-processo" element={<CardProcess />} />
+            <Route path="/cadastro-processo/:id" element={<CardProcess />} />
             <Route path="/agendamento/:id" element={<CardMeeting />} />
+            <Route path="/detalhe/:id" element={<DetailPage />} />
             <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
           </Routes>
         </AuthDisplayContextComponent>

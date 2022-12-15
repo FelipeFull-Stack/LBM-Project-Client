@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../api/api";
 import { AuthContext } from "../../context/authContext";
-import logoLBMextends from "../../images/logo-lbm-extenso.png"
+import logoLBMextends from "../../images/logo-lbm-extenso.png";
 
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';

@@ -26,20 +26,20 @@ function CardDisplay() {
                 setCustomerContents(responseCustomer.data);
                 setProcessContents(responseProcess.data);
                 setMeetingContents(responseMeeting.data);
-                if (displaySelect.selected === "customer") {
+                // if (displaySelect.selected === "customer") {
 
-                }
-                if (displaySelect.selected === "process") {
+                // }
+                // if (displaySelect.selected === "process") {
 
-                }
-                if (displaySelect.selected === "meeting") {
-                }
+                // }
+                // if (displaySelect.selected === "meeting") {
+                // }
             } catch (err) {
                 console.log(`Erro no Front-end - CardDisplay : ${err}`);
             }
         }
         fetchContents();
-    }, [])
+    }, []);
 
 
 
