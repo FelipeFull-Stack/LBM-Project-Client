@@ -90,7 +90,7 @@ function Home() {
                                             >
                                                 Reuniões
                                             </Button>
-                                            <Button onClick={()=> {navigate("/cadastro-cliente")}} variant="dark outline-secondary" className="p-2 rounded my-1">
+                                            <Button onClick={() => { navigate("/cadastro-cliente") }} variant="dark outline-secondary" className="p-2 rounded my-1">
                                                 Cadastro
                                             </Button>
                                             <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
