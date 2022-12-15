@@ -8,12 +8,8 @@ import {
     MDBCardBody,
     MDBCardTitle,
     MDBCardText,
-    MDBCardHeader,
-    MDBTabs,
-    MDBTabsItem,
-    MDBBtn,
-    MDBTabsLink
 } from 'mdb-react-ui-kit';
+import Button from 'react-bootstrap/Button';
 
 export function Profile() {
     const navigate = useNavigate();
@@ -54,41 +50,25 @@ export function Profile() {
 
     return (
         <>
-            <MDBCard className='text-center'>
-                <MDBCardHeader>
-                    <MDBTabs pills className='card-header-tabs'>
-                        <MDBTabsItem style={{ width: "15vw" }}>
-                            <MDBTabsLink active className="text-bg-primary">
-                                Visualizar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                        <MDBTabsItem style={{ width: "15vw" }}>
-                            <MDBTabsLink className="text-bg-warning">
-                                Editar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                        <MDBTabsItem style={{ width: "15vw" }}>
-                            <MDBTabsLink className="text-bg-danger">
-                                Deletar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                    </MDBTabs>
-                </MDBCardHeader>
-                <MDBCardBody>
-                    <MDBCardTitle>Seu Perfil</MDBCardTitle>
-                    <MDBCardText>
-                        <div>Nome: {userData.name}</div>
-                        <div>email: {userData.email}</div>
-                        <div>Quantidade de Processos: {userData.processes.length}</div>
-                        <div>Quantidade de Clientes: {userData.custumers.length}</div>
-                        <div>Quantidade de Reuniões Marcadas: {userData.meetings.length}</div>
-                    </MDBCardText>
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                        <MDBBtn style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</MDBBtn>
-                        <MDBBtn style={{ width: "10vw" }} onClick={handleLogOut}>Logout</MDBBtn>
-                    </div>
-                </MDBCardBody>
-            </MDBCard>
+            <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
+                <MDBCard className='text-center'>
+                    <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
+                        <MDBCardTitle className="m-5">Processo</MDBCardTitle>
+                        <MDBCardText className="m-4">
+                            <div>Nome: {userData.name}</div>
+                            <div>email: {userData.email}</div>
+                            <div>Quantidade de Processos: {userData.processes.length}</div>
+                            <div>Quantidade de Clientes: {userData.custumers.length}</div>
+                            <div>Quantidade de Reuniões Marcadas: {userData.meetings.length}</div>
+                        </MDBCardText>
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                            <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                            <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                            <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                        </div>
+                    </MDBCardBody>
+                </MDBCard>
+            </div>
         </>
     )
 }

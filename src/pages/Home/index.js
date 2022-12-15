@@ -93,16 +93,16 @@ function Home() {
                                             <Button onClick={()=> {navigate("/cadastro-cliente")}} variant="dark outline-secondary" className="p-2 rounded my-1">
                                                 Cadastro
                                             </Button>
-                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
                                                 Extra
                                             </Button>
-                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
                                                 Extra
                                             </Button>
-                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
                                                 Extra
                                             </Button>
-                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1">
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
                                                 Extra
                                             </Button>
                                         </ButtonGroup>
