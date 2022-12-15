@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { api } from "../../../../api/api";
@@ -15,6 +15,18 @@ function CardProcess() {
         etapa: "",
         comarca: ""
     });
+
+    useEffect(() => {
+        async function fetchProcess() {
+            try {
+                const response = await api.get(`/process/${params.id}`);
+                setForm(response.data);
+            } catch (err) {
+                console.log(`Erro no EditProcess.get em Front-end : ${err}`);
+            }
+        }
+        fetchProcess();
+    }, [])
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -33,10 +45,16 @@ function CardProcess() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            const responseId = await api.post(`/process/${params.id}`, form)
-            navigate(`/agendamento/${responseId.data.customer}`);
+            await api.put(`/process/${params.id}`, {
+                numProcess: form.numProcess,
+                type: form.type,
+                value: form.value,
+                etapa: form.etapa,
+                comarca: form.comarca
+            })
+            navigate(`/detalhe/${params.id}`);
         } catch (err) {
-            console.log(`Erro no Front-end em CardProcess: ${err}`);
+            console.log(`Erro no EditProcess.submit em Front-End: ${err}`);
         }
     }
 

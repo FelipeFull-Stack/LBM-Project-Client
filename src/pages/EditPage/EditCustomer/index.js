@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { api } from "../../../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function CardCustomer() {
-
+function EditCustomer() {
+    const params = useParams();
     const navigate = useNavigate();
     const [form, setForm] = useState({
         name: "",
@@ -14,6 +14,18 @@ function CardCustomer() {
         age: "",
         phone: ""
     });
+
+    useEffect(() => {
+        async function fetchCustomer() {
+            try {
+                const response = await api.get(`/customer/${params.id}`);
+                setForm(response.data);
+            } catch (err) {
+                console.log(`Erro no EditCustomer - Front-end: ${err}`);
+            }
+        }
+        fetchCustomer();
+    }, []);
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -32,10 +44,17 @@ function CardCustomer() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            const responseId = await api.post("/customer", form);
-            navigate(`/cadastro-processo/${responseId.data._id}`);
+            delete form._id;
+            await api.put(`/customer/${params.id}`, {
+                name: form.name,
+                email: form.email,
+                cpf: form.cpf,
+                age: form.age,
+                phone: form.phone
+            });
+            navigate(`/detalhe/${params.id}}`);
         } catch (err) {
-            console.log(`Erro no Front-end em CardCustomer: ${err}`);
+            console.log(`Erro no EditCustomer/Submit em Front-end : ${err}`);
         }
     }
 
@@ -43,7 +62,7 @@ function CardCustomer() {
         <>
             <form className="m-30">
                 <Card className="text-center">
-                    <Card.Header>Cadastro do Cliente</Card.Header>
+                    <Card.Header>Editando Cliente</Card.Header>
                     <Card.Body>
                         <div>
                             <label htmlFor="input-name">Nome completo: </label>
@@ -110,9 +129,9 @@ function CardCustomer() {
                             />
                         </div>
 
-                        <Button variant="primary" onClick={handleSubmit}>Cadastrar</Button>
-                        <Button variant="primary" onClick={handleClear}>Limpar</Button>
-                        <Button variant="primary" onClick={() => { navigate("/home") }}>Voltar</Button>
+                        <Button variant="outline-secondary" onClick={handleSubmit}>Cadastrar</Button>
+                        <Button variant="outline-secondary" onClick={handleClear}>Limpar</Button>
+                        <Button variant="outline-secondary" onClick={() => { navigate("/home") }}>Voltar</Button>
                     </Card.Body>
                 </Card>
             </form>
@@ -120,4 +139,4 @@ function CardCustomer() {
     )
 }
 
-export { CardCustomer }
+export { EditCustomer }

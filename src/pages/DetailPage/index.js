@@ -1,8 +1,8 @@
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import { authDisplayContext } from "../../context/authDisplayContext";
-import { AuthContext } from "../../context/authContext";
+import { infoContext } from "../../context/infoContext";
 import { useContext, useEffect, useState } from "react";
+// import { AuthContext } from "../../context/authContext";
 // import { CardDisplayCustomer } from "../DisplayCards/CardDisplayCustomer";
 // import { CardDisplayProcess } from "../DisplayCards/CardDisplayProcess";
 // import { CardDisplayMeeting } from "../DisplayCards/CardDisplayMeeting";
@@ -12,43 +12,58 @@ import {
     MDBCardBody,
     MDBCardTitle,
     MDBCardText,
-    MDBCardHeader,
-    MDBTabs,
-    MDBTabsItem,
-    MDBBtn,
-    MDBTabsLink
 } from 'mdb-react-ui-kit';
 import Button from 'react-bootstrap/Button';
-import Stack from 'react-bootstrap/Stack';
+// import Stack from 'react-bootstrap/Stack';
 
 function DetailPage() {
 
     const navigate = useNavigate();
-    const { displaySelect, setDisplaySelect } = useContext(authDisplayContext);
-    const { loadingContext } = useContext(AuthContext);
-    const [customerContents, setCustomerContents] = useState([]);
-    const [processContents, setProcessContents] = useState([]);
-    const [meetingContents, setMeetingContents] = useState([]);
-
-
+    const { objectId } = useContext(infoContext);
+    const [customerContents, setCustomerContents] = useState({
+        name: "",
+        email: "",
+        cpf: "",
+        age: "",
+        phone: "",
+        advogado: {},
+        process: {},
+        meeting: {}
+    });
+    const [processContents, setProcessContents] = useState({
+        numProcess: "",
+        type: "",
+        value: "",
+        etapa: "",
+        comarca: "",
+        advogado: {},
+        customer: {},
+        meeting: {}
+    });
+    const [meetingContents, setMeetingContents] = useState({
+        date: "",
+        time: "",
+        type: "",
+        advogado: {},
+        customer: {},
+        process: {}
+    });
 
     useEffect(() => {
         async function fetchContents() {
             try {
-                const responseCustomer = await api.get("/customer");
-                const responseProcess = await api.get("/process");
-                const responseMeeting = await api.get("/meeting");
-                setCustomerContents(responseCustomer.data);
-                setProcessContents(responseProcess.data);
-                setMeetingContents(responseMeeting.data);
-                // if (displaySelect.selected === "customer") {
-
-                // }
-                // if (displaySelect.selected === "process") {
-
-                // }
-                // if (displaySelect.selected === "meeting") {
-                // }
+                if (objectId.type === "customer") {
+                    const responseCustomer = await api.get(`/customer/${objectId.idSelected}`);
+                    setCustomerContents(responseCustomer.data);
+                }
+                if (objectId.type === "process") {
+                    const responseProcess = await api.get(`/process/${objectId.idSelected}`);
+                    setProcessContents(responseProcess.data);
+                }
+                if (objectId.type === "meeting") {
+                    const responseMeeting = await api.get(`/meeting/${objectId.idSelected}`);
+                    setMeetingContents(responseMeeting.data);
+                }
             } catch (err) {
                 console.log(`Erro no Front-end - CardDisplay : ${err}`);
             }
@@ -56,37 +71,91 @@ function DetailPage() {
         fetchContents();
     }, []);
 
+    function handleDelete() {
 
+    }
+
+    console.log("CustomerContents", customerContents)
     return (
         <>
-            <MDBCard className='text-center'>
-                <MDBCardHeader>
-                    <MDBTabs pills className='card-header-tabs'>
-                        <MDBTabsItem>
-                            <MDBTabsLink active>
-                                Editar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                        <MDBTabsItem>
-                            <MDBTabsLink>
-                                Deletar
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                        <MDBTabsItem>
-                            <MDBTabsLink className='disabled'>
-                                Disabled
-                            </MDBTabsLink>
-                        </MDBTabsItem>
-                    </MDBTabs>
-                </MDBCardHeader>
-                <MDBCardBody>
-                    <MDBCardTitle>Special title treatment</MDBCardTitle>
-                    <MDBCardText>
-                        With supporting text below as a natural lead-in to additional content.
-                    </MDBCardText>
-                    <MDBBtn>Go somewhere</MDBBtn>
-                </MDBCardBody>
-            </MDBCard>
+            {objectId.type === "customer" ? //é um cliente?
+                customerContents === {} ?
+                    <h1>Carregando</h1>
+                    :
+                    <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
+                        <MDBCard className='text-center'>
+                            <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
+                                <MDBCardTitle className="m-4">Cliente</MDBCardTitle>
+                                <MDBCardText className="m-5">
+                                    <div>CPF: {customerContents.cpf}</div>
+                                    <div>Idade: {customerContents.age} anos</div>
+                                    <div>E-mail: {customerContents.email}</div>
+                                    <div>Número de Contato: {customerContents.phone}</div>
+                                    <div>Advogado Principal: {customerContents.advogado.name}</div>
+                                    <div>Nº do Processo: {customerContents.process.numProcess}</div>
+                                    <div>Reunião marcada para: {customerContents.meeting.date}</div>
+                                </MDBCardText>
+                                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                                    <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                                    <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                                    <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                                </div>
+                            </MDBCardBody>
+                        </MDBCard>
+                    </div>
+                : //se não for cliente
+                objectId.type === "process" ? //é um processo?
+                    processContents === {} ?
+                        <h1>Carregando</h1>
+                        :
+                        <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
+                            <MDBCard className='text-center'>
+                                <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
+                                    <MDBCardTitle className="m-3">Processo</MDBCardTitle>
+                                    <MDBCardText className="m-4">
+                                        <div>Nº do processo: {processContents.numProcess}</div>
+                                        <div>Tipo do process: {processContents.type}</div>
+                                        <div>Valor: R${processContents.value},00</div>
+                                        <div>Etapa atual: {processContents.etapa}</div>
+                                        <div>Comarca: {processContents.comarca}</div>
+                                        <div>Advogado do Processo: {processContents.advogado.name}</div>
+                                        <div>Nome do Cliente: {processContents.customer.name}</div>
+                                        <div>CPF do Cliente: {processContents.customer.cpf}</div>
+                                        <div>Reunião datada para: {processContents.meeting.date}</div>
+                                    </MDBCardText>
+                                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                                    </div>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </div>
+                    : //se não for processo, deve ser uma reunião
+                    meetingContents === {} ?
+                        <h1>Carregando</h1>
+                        :
+                        <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
+                            <MDBCard className='text-center'>
+                                <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
+                                    <MDBCardTitle className="m-4">Reunião</MDBCardTitle>
+                                    <MDBCardText className="m-5">
+                                        <div>Data marcada: {meetingContents.date}</div>
+                                        <div>Horário combinado: {meetingContents.time}</div>
+                                        <div>Tema da Reunião: {meetingContents.type}</div>
+                                        <div>Advogado: {meetingContents.advogado.name}</div>
+                                        <div>Cliente: {meetingContents.customer.name}</div>
+                                        <div>Nº do Processo: {meetingContents.process.numProcess}</div>
+                                    </MDBCardText>
+                                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                                    </div>
+                                </MDBCardBody>
+                            </MDBCard>
+                        </div>
+            }
         </>
     )
 }

@@ -34,7 +34,7 @@ function Signup() {
     return (
         <>
             <form className="bg-secondary">
-                <div className="container p-2 text-center" style={{height: "100vh", width: "100vw"}}>
+                <div className="container p-2 text-center" style={{ height: "100vh", width: "100vw" }}>
                     <Stack gap={2} className="mx-auto p-2 w-50 mt-5 border rounded bg-white">
                         <div>
                             <img src={logoLBM} alt="Logo LBM Advogacia" className="w-50" />
@@ -53,6 +53,7 @@ function Signup() {
                                 placeholder="Digite seu nome ..."
                                 required
                                 className="form-control"
+                                style={{textAlign: "center"}}
                             />
                         </div>
 
@@ -70,6 +71,7 @@ function Signup() {
                                 placeholder="Ex: adgovado@gmail.com"
                                 required
                                 className="form-control"
+                                style={{textAlign: "center"}}
                             />
                         </div>
 
@@ -88,10 +90,13 @@ function Signup() {
                                 // match="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$])[a-zA-Z0-9@#$]{8,24}$"
                                 required
                                 className="form-control"
+                                style={{textAlign: "center"}}
                             />
                         </div>
-                        <Button variant="outline-primary" onClick={handleSubmit} className="w-50">Criar Cadastro</Button>
-                        <Button variant="outline-secondary" onClick={() => { navigate("/login") }} className="w-50">Cancelar</Button>
+                        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px" }}>
+                            <Button variant="outline-primary" onClick={handleSubmit} className="w-50">Criar Cadastro</Button>
+                            <Button variant="outline-secondary" onClick={() => { navigate("/login") }} className="w-50">Cancelar</Button>
+                        </div>
                     </Stack>
                 </div>
             </form>

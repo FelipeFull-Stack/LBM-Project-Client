@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { api } from "../../../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
-function CardMeeting() {
+function EditMeeting() {
     const params = useParams();
     const navigate = useNavigate();
     const [form, setForm] = useState({
@@ -13,6 +13,17 @@ function CardMeeting() {
         type: ""
     });
 
+    useEffect(() => {
+        async function fetchMeeting() {
+            try {
+                const response = await api.get(`/meeting/${params.id}`);
+                setForm(response.data);
+            } catch (err) {
+                console.log(`Erro em EditMeeting/Front-end : ${err}`);
+            }
+        }
+        fetchMeeting();
+    }, [])
 
     function handleChange(event) {
         setForm({ ...form, [event.target.name]: event.target.value });
@@ -29,10 +40,15 @@ function CardMeeting() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await api.post(`/meeting/${params.id}`, form)
-            navigate("/home");
+            delete form._id;
+            await api.put(`/meeting/${params.id}`, {
+                date: form.date,
+                time: form.time,
+                type: form.type
+            });
+            navigate(`/detalhe/${params.id}`);
         } catch (err) {
-            console.log(`Erro no Front-end em CardMeeting: ${err}`);
+            console.log(`Erro no EditMeeting/Submit em Front-end : ${err}`);
         }
     }
 
@@ -138,4 +154,4 @@ function CardMeeting() {
     )
 }
 
-export { CardMeeting }
+export { EditMeeting }
