@@ -6,9 +6,11 @@ import {
     MDBRow,
     MDBCol
 } from 'mdb-react-ui-kit';
+import { useNavigate } from "react-router-dom";
 
 function CardDisplayProcess(props) {
     const { numProcess, type, value, etapa } = props;
+    const navigate = useNavigate();
 
     let stringP = numProcess;
     stringP = stringP.toString();
@@ -63,7 +65,11 @@ function CardDisplayProcess(props) {
                         {/* <MDBCardTitle>{name}</MDBCardTitle> */}
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             {/* <input type="radio" /> */}
-                            <button className="btn btn-outline-success rounded border" stype={{width: "5px", height: "5px"}}></button>
+                            <button
+                                className="btn btn-outline-success rounded border"
+                                stype={{ width: "5px", height: "5px" }}
+                                onClick={() => { navigate("/agendamento") }}
+                            ></button>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{NumProcessStyle}</div>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "13%" }}>{stringType}</div>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "18%" }}>{processValue}</div>
