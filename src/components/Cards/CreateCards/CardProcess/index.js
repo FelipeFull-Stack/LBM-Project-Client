@@ -50,13 +50,14 @@ function CardProcess() {
                             <label htmlFor="input-numProcess">Nº do Processo: </label>
                             <input
                                 id="input-numProcess"
-                                type="number"
+                                type="text"
                                 name="numProcess"
                                 value={form.numProcess}
                                 onChange={handleChange}
                                 placeholder="_______.__.____._.__.____"
                                 minLength="20"
                                 maxLength="20"
+                                required
                             />
                         </div>
                         <div>

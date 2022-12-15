@@ -76,10 +76,10 @@ function CardDisplayProcess(props) {
                                     navigate(`/detalhe/${id}`)
                                 }}
                             ></button>
-                            <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{NumProcessStyle}</div>
-                            <div style={{ fontSize: "15px", fontWeight: "700", width: "13%" }}>{stringType}</div>
-                            <div style={{ fontSize: "15px", fontWeight: "700", width: "18%" }}>{processValue}</div>
-                            <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{stringEtapa}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "31%" }}>{NumProcessStyle}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "15%" }}>{stringType}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "19%" }}>{processValue}</div>
+                            <div style={{ fontSize: "15px", fontWeight: "700", width: "28%" }}>{stringEtapa}</div>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
