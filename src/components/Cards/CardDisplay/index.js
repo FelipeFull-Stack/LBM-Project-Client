@@ -124,13 +124,11 @@ function CardDisplay() {
 
                         <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "white" }}>Nº Processo:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "22.5%", color: "white" }}>Data marcada:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "9%", color: "white" }}>Tipo:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "17.5%", color: "white" }}>Horário:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "white" }}>Valor:</div>
-                            <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "16%", color: "white" }}>Etapa:</div>
                         </div>
                         {meetingContents.map((currentElement) => {
                             return <CardDisplayMeeting
