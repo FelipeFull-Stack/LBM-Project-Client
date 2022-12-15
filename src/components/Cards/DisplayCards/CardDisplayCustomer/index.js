@@ -7,9 +7,12 @@ import {
     MDBCol,
 } from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { infoContext } from "../../../../context/infoContext"
 
 function CardDisplayCustomer(props) {
-    const { cpf, age, name, email, phone } = props;
+    const { setObjectId } = useContext(infoContext);
+    const { cpf, name, email, phone, id } = props;
     const navigate = useNavigate();
 
     let string = "";
@@ -33,7 +36,10 @@ function CardDisplayCustomer(props) {
                             <button
                                 className="btn btn-outline-success rounded border"
                                 stype={{ width: "5px", height: "5px" }}
-                                onClick={() => { navigate("/cadastro-cliente") }}
+                                onClick={() => {
+                                    setObjectId({ idSelected: id })
+                                    navigate("/cadastro-cliente")
+                                }}
                             ></button>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "35%" }}>{name}</div>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "20%" }}>{numberCPFstyle}</div>

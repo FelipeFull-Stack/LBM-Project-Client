@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthContextComponent } from "./context/authContext";
 import { AuthDisplayContextComponent } from "./context/authDisplayContext";
+import { InfoContextComponent } from "./context/infoContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Home } from "./pages/Home";
 import { Signup } from "./pages/Signup";
@@ -16,17 +17,19 @@ function App() {
     <>
       <AuthContextComponent>
         <AuthDisplayContextComponent>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro-cliente" element={<CardCustomer />} />
-            <Route path="/cadastro-processo/:id" element={<CardProcess />} />
-            <Route path="/agendamento/:id" element={<CardMeeting />} />
-            <Route path="/detalhe/:id" element={<DetailPage />} />
-            <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
-          </Routes>
+          <InfoContextComponent>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro-cliente" element={<CardCustomer />} />
+              <Route path="/cadastro-processo/:id" element={<CardProcess />} />
+              <Route path="/agendamento/:id" element={<CardMeeting />} />
+              <Route path="/detalhe/:id" element={<DetailPage />} />
+              <Route path="/profile" element={<ProtectedRoute Component={Profile} />} />
+            </Routes>
+          </InfoContextComponent>
         </AuthDisplayContextComponent>
       </AuthContextComponent>
     </>

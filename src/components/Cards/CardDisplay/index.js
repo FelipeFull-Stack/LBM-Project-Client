@@ -71,6 +71,7 @@ function CardDisplay() {
                                 return (
                                     <>
                                         <CardDisplayCustomer
+                                            id={currentElement._id}
                                             name={currentElement.name}
                                             cpf={currentElement.cpf}
                                             age={currentElement.age}
@@ -105,6 +106,7 @@ function CardDisplay() {
                         </div>
                         {processContents.map((currentElement) => {
                             return <CardDisplayProcess
+                                id={currentElement._id}
                                 numProcess={currentElement.numProcess}
                                 type={currentElement.type}
                                 value={currentElement.value}
@@ -132,6 +134,7 @@ function CardDisplay() {
                         </div>
                         {meetingContents.map((currentElement) => {
                             return <CardDisplayMeeting
+                                id={currentElement._id}
                                 date={currentElement.date}
                                 time={currentElement.time}
                                 type={currentElement.type}

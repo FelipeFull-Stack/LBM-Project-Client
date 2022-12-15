@@ -41,7 +41,7 @@ export function Login() {
     return (
         <>
             <form className="bg-secondary">
-                <div className="container p-2 text-center" style={{height: "100vh", width: "100vw"}}>
+                <div className="container p-2 text-center" style={{ height: "100vh", width: "100vw" }}>
                     <Stack gap={2} className="mx-auto p-2 w-50 mt-5 border rounded bg-white">
                         <div>
                             <img src={logoLBMextends} alt="Logo LBM Advogacia" className="w-75" />
@@ -56,6 +56,7 @@ export function Login() {
                                 onChange={handleChange}
                                 placeholder="Ex: adgovado@gmail.com"
                                 className="form-control"
+                                style={{textAlign: "center"}}
                             />
                         </div>
                         <div className="align-items-center">
@@ -67,11 +68,13 @@ export function Login() {
                                 value={form.password}
                                 onChange={handleChange}
                                 className="form-control"
+                                style={{textAlign: "center"}}
                             />
                         </div>
-
-                        <Button variant="outline-dark" onClick={handleSubmit} className="w-50 align-items-center">Conectar</Button>
-                        <Button variant="outline-dark" onClick={() => { navigate("/signup") }} className="w-50">Fazer Cadastro</Button>
+                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "10px"}}>
+                            <Button variant="outline-dark" onClick={handleSubmit} className="w-50 align-items-center">Conectar</Button>
+                            <Button variant="outline-dark" onClick={() => { navigate("/signup") }} className="w-50">Fazer Cadastro</Button>
+                        </div>
                     </Stack>
                 </div>
             </form>

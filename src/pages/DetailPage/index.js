@@ -1,6 +1,6 @@
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import { authDisplayContext } from "../../context/authDisplayContext";
+import { infoContext } from "../../context/infoContext";
 import { AuthContext } from "../../context/authContext";
 import { useContext, useEffect, useState } from "react";
 // import { CardDisplayCustomer } from "../DisplayCards/CardDisplayCustomer";
@@ -24,20 +24,21 @@ import Stack from 'react-bootstrap/Stack';
 function DetailPage() {
 
     const navigate = useNavigate();
-    const { displaySelect, setDisplaySelect } = useContext(authDisplayContext);
-    const { loadingContext } = useContext(AuthContext);
+    const { objectId } = useContext(infoContext);
     const [customerContents, setCustomerContents] = useState([]);
     const [processContents, setProcessContents] = useState([]);
     const [meetingContents, setMeetingContents] = useState([]);
 
 
 
+
+
     useEffect(() => {
         async function fetchContents() {
             try {
-                const responseCustomer = await api.get("/customer");
-                const responseProcess = await api.get("/process");
-                const responseMeeting = await api.get("/meeting");
+                const responseCustomer = await api.get("/customer/objectId");
+                const responseProcess = await api.get("/process/objectId");
+                const responseMeeting = await api.get("/meeting/objectId");
                 setCustomerContents(responseCustomer.data);
                 setProcessContents(responseProcess.data);
                 setMeetingContents(responseMeeting.data);
@@ -72,19 +73,21 @@ function DetailPage() {
                                 Deletar
                             </MDBTabsLink>
                         </MDBTabsItem>
-                        <MDBTabsItem>
+                        {/* <MDBTabsItem>
                             <MDBTabsLink className='disabled'>
                                 Disabled
                             </MDBTabsLink>
-                        </MDBTabsItem>
+                        </MDBTabsItem> */}
                     </MDBTabs>
                 </MDBCardHeader>
                 <MDBCardBody>
-                    <MDBCardTitle>Special title treatment</MDBCardTitle>
+                    <MDBCardTitle>Clientes/Processos/Reuniões</MDBCardTitle>
                     <MDBCardText>
-                        With supporting text below as a natural lead-in to additional content.
+                        Conteúdo do :
                     </MDBCardText>
-                    <MDBBtn>Go somewhere</MDBBtn>
+                    <MDBBtn>Criar</MDBBtn>
+                    <MDBBtn>Limpar</MDBBtn>
+                    <MDBBtn>Voltar</MDBBtn>
                 </MDBCardBody>
             </MDBCard>
         </>

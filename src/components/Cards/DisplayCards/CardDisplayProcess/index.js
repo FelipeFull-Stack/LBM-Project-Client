@@ -7,9 +7,12 @@ import {
     MDBCol
 } from 'mdb-react-ui-kit';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { infoContext } from "../../../../context/infoContext"
 
 function CardDisplayProcess(props) {
-    const { numProcess, type, value, etapa } = props;
+    const { setObjectId } = useContext(infoContext);
+    const { numProcess, type, value, etapa, id } = props;
     const navigate = useNavigate();
 
     let stringP = numProcess;
@@ -68,7 +71,10 @@ function CardDisplayProcess(props) {
                             <button
                                 className="btn btn-outline-success rounded border"
                                 stype={{ width: "5px", height: "5px" }}
-                                onClick={() => { navigate("/agendamento") }}
+                                onClick={() => {
+                                    setObjectId({ idSelected: id })
+                                    navigate("/agendamento")
+                                }}
                             ></button>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "32%" }}>{NumProcessStyle}</div>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "13%" }}>{stringType}</div>

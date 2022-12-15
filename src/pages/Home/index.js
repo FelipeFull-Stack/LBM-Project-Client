@@ -15,10 +15,9 @@ import Stack from 'react-bootstrap/Stack';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 function Home() {
-    const { loggedInUser, loadingContext } = useContext(AuthContext);
+    const { loggedInUser, setLoggedInUser, loadingContext } = useContext(AuthContext);
     const { setDisplaySelect } = useContext(authDisplayContext);
     const navigate = useNavigate();
-    const { setLoggedInUser } = useContext(AuthContext);
 
     function handleLogOut() {
         localStorage.removeItem("loggedInUser");
