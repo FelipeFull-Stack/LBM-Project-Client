@@ -83,7 +83,6 @@ function EditProcess() {
                                         placeholder="_______.__.____._.__.____"
                                         minLength="20"
                                         maxLength="20"
-                                        className="rounded"
                                         style={{width: "25vw", height: "5vh"}}
                                         required
                                     />
@@ -95,7 +94,6 @@ function EditProcess() {
                                         name="type"
                                         value={form.type}
                                         onChange={handleChange}
-                                        className="rounded"
                                         style={{width: "25vw", height: "5vh"}}
                                     >
                                         <option>Escolha o tipo do processo</option>
@@ -112,7 +110,6 @@ function EditProcess() {
                                         name="value"
                                         value={form.value}
                                         onChange={handleChange}
-                                        className="rounded"
                                         style={{width: "25vw", height: "5vh"}}
                                     />
                                 </div>
@@ -122,7 +119,6 @@ function EditProcess() {
                                         name="etapa"
                                         value={form.etapa}
                                         onChange={handleChange}
-                                        className="rounded"
                                         style={{width: "25vw", height: "5vh"}}
                                     >
                                         <option>Escolha a etapa do processo</option>
@@ -143,7 +139,6 @@ function EditProcess() {
                                         name="comarca"
                                         value={form.comarca}
                                         onChange={handleChange}
-                                        className="rounded"
                                         style={{width: "25vw", height: "5vh"}}
                                     />
                                 </div>

@@ -107,19 +107,19 @@ function DetailPage() {
                         <MDBCard className='text-center'>
                             <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
                                 <MDBCardTitle className="m-4">Cliente</MDBCardTitle>
-                                <MDBCardText className="m-5">
-                                    <div>CPF: {customerContents.cpf}</div>
-                                    <div>Idade: {customerContents.age} anos</div>
-                                    <div>E-mail: {customerContents.email}</div>
-                                    <div>Número de Contato: {customerContents.phone}</div>
-                                    <div>Advogado Principal: {customerContents.advogado.name}</div>
-                                    <div>Nº do Processo: {customerContents.process.numProcess}</div>
-                                    <div>Reunião marcada para: {customerContents.meeting.date}</div>
+                                <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF: </p><p style={{fontWeight: "500"}}>{customerContents.cpf}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Idade: </p><p style={{fontWeight: "500"}}>{customerContents.age} anos</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>E-mail: </p><p style={{fontWeight: "500"}}>{customerContents.email}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Número de Contato: </p><p style={{fontWeight: "500"}}>{customerContents.phone}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado Principal: </p><p style={{fontWeight: "500"}}>{customerContents.advogado.name}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do Processo: </p><p style={{fontWeight: "500"}}>{customerContents.process.numProcess}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião marcada para: </p><p style={{fontWeight: "500"}}>{customerContents.meeting.date}</p></div>
                                 </MDBCardText>
                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                    <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                                    <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                                     <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-cliente/${params.id}`) }}>Editar</Button>
-                                    <Button variant="outline-dark" style={{ width: "10vw" }} onClick={handleDeleteCustomer}>Deletar</Button>
+                                    <Button variant="outline-danger" style={{ width: "10vw" }} onClick={handleDeleteCustomer}>Deletar</Button>
                                 </div>
                             </MDBCardBody>
                         </MDBCard>
@@ -132,22 +132,22 @@ function DetailPage() {
                         <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                             <MDBCard className='text-center'>
                                 <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                                    <MDBCardTitle className="m-3">Processo</MDBCardTitle>
-                                    <MDBCardText className="m-4">
-                                        <div>Nº do processo: {processContents.numProcess}</div>
-                                        <div>Tipo do process: {processContents.type}</div>
-                                        <div>Valor: R${processContents.value},00</div>
-                                        <div>Etapa atual: {processContents.etapa}</div>
-                                        <div>Comarca: {processContents.comarca}</div>
-                                        <div>Advogado do Processo: {processContents.advogado.name}</div>
-                                        <div>Nome do Cliente: {processContents.customer.name}</div>
-                                        <div>CPF do Cliente: {processContents.customer.cpf}</div>
-                                        <div>Reunião datada para: {processContents.meeting.date}</div>
+                                    <MDBCardTitle className="m-3">Visualizando o Processo</MDBCardTitle>
+                                    <MDBCardText className="m-4" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do processo: </p><p style={{fontWeight: "500"}}>{processContents.numProcess}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Tipo do process: </p><p style={{fontWeight: "500"}}>{processContents.type}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Valor: </p><p style={{fontWeight: "500"}}>R${processContents.value},00</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Etapa atual: </p><p style={{fontWeight: "500"}}>{processContents.etapa}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Comarca: </p><p style={{fontWeight: "500"}}>{processContents.comarca}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado do Processo: </p><p style={{fontWeight: "500"}}>{processContents.advogado.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nome do Cliente: </p><p style={{fontWeight: "500"}}>{processContents.customer.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF do Cliente: </p><p style={{fontWeight: "500"}}>{processContents.customer.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião datada para: </p><p style={{fontWeight: "500"}}>{processContents.meeting.date}</p></div>
                                     </MDBCardText>
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                                        <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-processo/${params.id}`) }}>Editar</Button>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={handleDeleteProcess}>Deletar</Button>
+                                        <Button variant="outline-danger" style={{ width: "10vw" }} onClick={handleDeleteProcess}>Deletar</Button>
                                     </div>
                                 </MDBCardBody>
                             </MDBCard>
@@ -160,18 +160,18 @@ function DetailPage() {
                             <MDBCard className='text-center'>
                                 <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
                                     <MDBCardTitle className="m-4">Reunião</MDBCardTitle>
-                                    <MDBCardText className="m-5">
-                                        <div>Data marcada: {meetingContents.date}</div>
-                                        <div>Horário combinado: {meetingContents.time}</div>
-                                        <div>Tema da Reunião: {meetingContents.type}</div>
-                                        <div>Advogado: {meetingContents.advogado.name}</div>
-                                        <div>Cliente: {meetingContents.customer.name}</div>
-                                        <div>Nº do Processo: {meetingContents.process.numProcess}</div>
+                                    <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
+                                        <div className="border" style={{ width: "42vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Data marcada: </p><p>{meetingContents.date}</p></div>
+                                        <div className="border" style={{ width: "42vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Horário combinado:</p> <p>{meetingContents.time} horas</p></div>
+                                        <div className="border" style={{ width: "42vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Tema da Reunião:</p> <p>{meetingContents.type}</p></div>
+                                        <div className="border" style={{ width: "42vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado:</p> <p>{meetingContents.advogado.name}</p></div>
+                                        <div className="border" style={{ width: "42vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Cliente:</p> <p>{meetingContents.customer.name}</p></div>
+                                        <div className="border" style={{ width: "42vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do Processo:</p> <p>{meetingContents.process.numProcess}</p></div>
                                     </MDBCardText>
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                                        <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-reuniao/${params.id}`) }}>Editar</Button>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={handleDeleteMeeting}>Deletar</Button>
+                                        <Button variant="outline-danger" style={{ width: "10vw" }} onClick={handleDeleteMeeting}>Deletar</Button>
                                     </div>
                                 </MDBCardBody>
                             </MDBCard>

@@ -53,7 +53,7 @@ export function Profile() {
             <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                 <MDBCard className='text-center'>
                     <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                        <MDBCardTitle className="m-5">Processo</MDBCardTitle>
+                        <MDBCardTitle className="m-4" style={{fontSize: "40px"}}>Perfil</MDBCardTitle>
                         <MDBCardText className="m-4">
                             <div>Nome: {userData.name}</div>
                             <div>email: {userData.email}</div>
@@ -62,9 +62,9 @@ export function Profile() {
                             <div>Quantidade de Reuniões Marcadas: {userData.meetings.length}</div>
                         </MDBCardText>
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                            <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                            <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                             <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
-                            <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                            <Button variant="outline-danger" style={{ width: "10vw" }}>Deletar</Button>
                         </div>
                     </MDBCardBody>
                 </MDBCard>
