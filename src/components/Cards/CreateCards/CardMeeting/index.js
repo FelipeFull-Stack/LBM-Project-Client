@@ -137,9 +137,9 @@ function CardMeeting() {
                                 </div>
                             </MDBCardText>
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                <Button variant="primary" onClick={handleSubmit}>Cadastrar</Button>
-                                <Button variant="primary" onClick={handleClear}>Limpar</Button>
-                                <Button variant="primary" onClick={() => { navigate("/home") }}>Voltar</Button>
+                                <Button variant="outline-dark" onClick={handleSubmit}>Cadastrar</Button>
+                                <Button variant="outline-dark" onClick={handleClear}>Limpar</Button>
+                                <Button variant="outline-dark" onClick={() => { navigate("/home") }}>Voltar</Button>
                             </div>
                         </MDBCardBody>
                     </MDBCard>
