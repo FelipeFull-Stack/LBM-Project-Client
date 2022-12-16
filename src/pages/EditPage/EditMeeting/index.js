@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { api } from "../../../../api/api";
+import { api } from "../../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 function EditMeeting() {
