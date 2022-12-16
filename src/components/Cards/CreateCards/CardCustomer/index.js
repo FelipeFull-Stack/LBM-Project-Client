@@ -52,8 +52,8 @@ function CardCustomer() {
                     <MDBCard className='text-center'>
                         <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
                             <MDBCardTitle className="m-4">Cadastro do Cliente</MDBCardTitle>
-                            <MDBCardText className="m-5">
-                                <div>
+                            <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-name">Nome completo: </label>
                                     <input
                                         id="input-name"
@@ -62,10 +62,11 @@ function CardCustomer() {
                                         value={form.name}
                                         onChange={handleChange}
                                         required
+                                        style={{ width: "25vw", height: "5vh" }}
                                     />
                                 </div>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-email">Email: </label>
                                     <input
                                         id="input-email"
@@ -75,10 +76,11 @@ function CardCustomer() {
                                         onChange={handleChange}
                                         placeholder="exemplo@email.com"
                                         required
+                                        style={{ width: "25vw", height: "5vh" }}
                                     />
                                 </div>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-cpf">Cpf: </label>
                                     <input
                                         id="input-cpf"
@@ -90,10 +92,11 @@ function CardCustomer() {
                                         onChange={handleChange}
                                         placeholder="___.___.___-__"
                                         required
+                                        style={{ width: "25vw", height: "5vh" }}
                                     />
                                 </div>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-age">Idade: </label>
                                     <input
                                         id="input-age"
@@ -101,10 +104,11 @@ function CardCustomer() {
                                         name="age"
                                         value={form.age}
                                         onChange={handleChange}
+                                        style={{ width: "25vw", height: "5vh" }}
                                     />
                                 </div>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-phone">Telefone: </label>
                                     <input
                                         id="input-phone"
@@ -115,12 +119,13 @@ function CardCustomer() {
                                         minLength="11"
                                         maxLength="11"
                                         placeholder="(__) _ ____-____"
+                                        style={{ width: "25vw", height: "5vh" }}
                                     />
                                 </div>
                             </MDBCardText>
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                <Button variant="outline-dark" onClick={handleSubmit}>Cadastrar</Button>
-                                <Button variant="outline-dark" onClick={handleClear}>Limpar</Button>
+                                <Button variant="outline-success" onClick={handleSubmit}>Cadastrar</Button>
+                                <Button variant="outline-secondary" onClick={handleClear}>Limpar</Button>
                                 <Button variant="outline-dark" onClick={() => { navigate("/home") }}>Voltar</Button>
                             </div>
                         </MDBCardBody>
