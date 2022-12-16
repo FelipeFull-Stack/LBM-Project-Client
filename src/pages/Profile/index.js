@@ -53,18 +53,19 @@ export function Profile() {
             <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                 <MDBCard className='text-center'>
                     <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                        <MDBCardTitle className="m-5">Processo</MDBCardTitle>
-                        <MDBCardText className="m-4">
-                            <div>Nome: {userData.name}</div>
-                            <div>email: {userData.email}</div>
-                            <div>Quantidade de Processos: {userData.processes.length}</div>
-                            <div>Quantidade de Clientes: {userData.custumers.length}</div>
-                            <div>Quantidade de Reuniões Marcadas: {userData.meetings.length}</div>
+                        <MDBCardTitle className="m-4" style={{ fontSize: "40px" }}>Perfil</MDBCardTitle>
+                        <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
+                            <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nome: </p><p style={{ fontWeight: "500" }}>{userData.name}</p></div>
+                            <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>email: </p><p style={{ fontWeight: "500" }}>{userData.email}</p></div>
+
+                            <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Quantidade de Processos: </p><p style={{ fontWeight: "500" }}>{userData.processes.length}</p></div>
+                            <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Quantidade de Clientes: </p><p style={{ fontWeight: "500" }}>{userData.custumers.length}</p></div>
+                            <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Quantidade de Reuniões Marcadas: </p><p style={{ fontWeight: "500" }}>{userData.meetings.length}</p></div>
                         </MDBCardText>
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                            <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
-                            <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
-                            <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                            <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
+                            {/* <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button> */}
+                            {/* <Button variant="outline-danger" style={{ width: "10vw" }}>Deletar</Button> */}
                         </div>
                     </MDBCardBody>
                 </MDBCard>
