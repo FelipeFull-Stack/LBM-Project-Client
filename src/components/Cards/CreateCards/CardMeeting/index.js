@@ -2,6 +2,13 @@ import { useState } from "react";
 import { api } from "../../../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
+import {
+    MDBCard,
+    MDBCardBody,
+    MDBCardTitle,
+    MDBCardText,
+} from 'mdb-react-ui-kit';
+import Button from 'react-bootstrap/Button';
 
 function CardMeeting() {
     const params = useParams();
