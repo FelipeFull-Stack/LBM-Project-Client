@@ -129,7 +129,7 @@ function EditCustomer() {
                             />
                         </div>
 
-                        <Button variant="outline-secondary" onClick={handleSubmit}>Cadastrar</Button>
+                        <Button variant="outline-secondary" onClick={handleSubmit}>Salvar</Button>
                         <Button variant="outline-secondary" onClick={handleClear}>Limpar</Button>
                         <Button variant="outline-secondary" onClick={() => { navigate("/home") }}>Voltar</Button>
                     </Card.Body>

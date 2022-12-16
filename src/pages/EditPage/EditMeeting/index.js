@@ -144,7 +144,7 @@ function EditMeeting() {
                             </select>
                         </div>
 
-                        <Button variant="primary" onClick={handleSubmit}>Cadastrar</Button>
+                        <Button variant="primary" onClick={handleSubmit}>Salvar</Button>
                         <Button variant="primary" onClick={handleClear}>Limpar</Button>
                         <Button variant="primary" onClick={() => { navigate("/home") }}>Voltar</Button>
                     </Card.Body>

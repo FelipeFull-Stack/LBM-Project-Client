@@ -71,8 +71,29 @@ function DetailPage() {
         fetchContents();
     }, []);
 
-    function handleDelete() {
-
+    async function handleDeleteCustomer() {
+        try {
+            await api.delete(`/customer/${params.id}`);
+            window.location = ("/home");
+        } catch (err) {
+            console.log(`Erro em handleDeleteCustomer - Front-End : ${err}`);
+        }
+    }
+    async function handleDeleteProcess() {
+        try {
+            await api.delete(`/process/${params.id}`);
+            window.location = ("/home");
+        } catch (err) {
+            console.log(`Erro em handleDeleteProcess - Front-End : ${err}`);
+        }
+    }
+    async function handleDeleteMeeting() {
+        try {
+            await api.delete(`/meeting/${params.id}`);
+            window.location = ("/home");
+        } catch (err) {
+            console.log(`Erro em handleDeleteMeeting - Front-End : ${err}`);
+        }
     }
 
     console.log("CustomerContents", customerContents)
@@ -98,7 +119,7 @@ function DetailPage() {
                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                     <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                                     <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-cliente/${params.id}`) }}>Editar</Button>
-                                    <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                                    <Button variant="outline-dark" style={{ width: "10vw" }} onClick={handleDeleteCustomer}>Deletar</Button>
                                 </div>
                             </MDBCardBody>
                         </MDBCard>
@@ -126,7 +147,7 @@ function DetailPage() {
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-processo/${params.id}`) }}>Editar</Button>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={handleDeleteProcess}>Deletar</Button>
                                     </div>
                                 </MDBCardBody>
                             </MDBCard>
@@ -150,7 +171,7 @@ function DetailPage() {
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-reuniao/${params.id}`) }}>Editar</Button>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={handleDeleteMeeting}>Deletar</Button>
                                     </div>
                                 </MDBCardBody>
                             </MDBCard>
