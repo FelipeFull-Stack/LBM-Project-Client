@@ -74,7 +74,7 @@ function DetailPage() {
     async function handleDeleteCustomer() {
         try {
             await api.delete(`/customer/${params.id}`);
-            window.location = ("/home");
+            navigate("/home");
         } catch (err) {
             console.log(`Erro em handleDeleteCustomer - Front-End : ${err}`);
         }
@@ -82,7 +82,7 @@ function DetailPage() {
     async function handleDeleteProcess() {
         try {
             await api.delete(`/process/${params.id}`);
-            window.location = ("/home");
+            navigate("/home");
         } catch (err) {
             console.log(`Erro em handleDeleteProcess - Front-End : ${err}`);
         }
@@ -90,7 +90,7 @@ function DetailPage() {
     async function handleDeleteMeeting() {
         try {
             await api.delete(`/meeting/${params.id}`);
-            window.location = ("/home");
+            navigate("/home");
         } catch (err) {
             console.log(`Erro em handleDeleteMeeting - Front-End : ${err}`);
         }
