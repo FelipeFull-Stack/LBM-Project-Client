@@ -106,15 +106,15 @@ function DetailPage() {
                     <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                         <MDBCard className='text-center'>
                             <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                                <MDBCardTitle className="m-4">Cliente</MDBCardTitle>
+                                <MDBCardTitle className="m-4" style={{ fontSize: "30px" }}>{customerContents.name}</MDBCardTitle>
                                 <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF: </p><p style={{fontWeight: "500"}}>{customerContents.cpf}</p></div>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Idade: </p><p style={{fontWeight: "500"}}>{customerContents.age} anos</p></div>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>E-mail: </p><p style={{fontWeight: "500"}}>{customerContents.email}</p></div>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Número de Contato: </p><p style={{fontWeight: "500"}}>{customerContents.phone}</p></div>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado Principal: </p><p style={{fontWeight: "500"}}>{customerContents.advogado.name}</p></div>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do Processo: </p><p style={{fontWeight: "500"}}>{customerContents.process.numProcess}</p></div>
-                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião marcada para: </p><p style={{fontWeight: "500"}}>{customerContents.meeting.date}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF: </p><p style={{ fontWeight: "500" }}>{customerContents.cpf}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Idade: </p><p style={{ fontWeight: "500" }}>{customerContents.age} anos</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>E-mail: </p><p style={{ fontWeight: "500" }}>{customerContents.email}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Número de Contato: </p><p style={{ fontWeight: "500" }}>{customerContents.phone}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado Principal: </p><p style={{ fontWeight: "500" }}>{customerContents.advogado.name}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do Processo: </p><p style={{ fontWeight: "500" }}>{customerContents.process.numProcess}</p></div>
+                                    <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião marcada para: </p><p style={{ fontWeight: "500" }}>{customerContents.meeting.date}</p></div>
                                 </MDBCardText>
                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                     <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
@@ -134,15 +134,15 @@ function DetailPage() {
                                 <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
                                     <MDBCardTitle className="m-3">Visualizando o Processo</MDBCardTitle>
                                     <MDBCardText className="m-4" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do processo: </p><p style={{fontWeight: "500"}}>{processContents.numProcess}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Tipo do process: </p><p style={{fontWeight: "500"}}>{processContents.type}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Valor: </p><p style={{fontWeight: "500"}}>R${processContents.value},00</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Etapa atual: </p><p style={{fontWeight: "500"}}>{processContents.etapa}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Comarca: </p><p style={{fontWeight: "500"}}>{processContents.comarca}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado do Processo: </p><p style={{fontWeight: "500"}}>{processContents.advogado.name}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nome do Cliente: </p><p style={{fontWeight: "500"}}>{processContents.customer.name}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF do Cliente: </p><p style={{fontWeight: "500"}}>{processContents.customer.name}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião datada para: </p><p style={{fontWeight: "500"}}>{processContents.meeting.date}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nº do processo: </p><p style={{ fontWeight: "500" }}>{processContents.numProcess}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Tipo do process: </p><p style={{ fontWeight: "500" }}>{processContents.type}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Valor: </p><p style={{ fontWeight: "500" }}>R${processContents.value},00</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Etapa atual: </p><p style={{ fontWeight: "500" }}>{processContents.etapa}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Comarca: </p><p style={{ fontWeight: "500" }}>{processContents.comarca}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado do Processo: </p><p style={{ fontWeight: "500" }}>{processContents.advogado.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nome do Cliente: </p><p style={{ fontWeight: "500" }}>{processContents.customer.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF do Cliente: </p><p style={{ fontWeight: "500" }}>{processContents.customer.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião datada para: </p><p style={{ fontWeight: "500" }}>{processContents.meeting.date}</p></div>
                                     </MDBCardText>
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                         <Button variant="outline-secondary" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
