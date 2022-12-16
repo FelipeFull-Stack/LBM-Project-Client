@@ -141,7 +141,7 @@ function DetailPage() {
                                         <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Comarca: </p><p style={{ fontWeight: "500" }}>{processContents.comarca}</p></div>
                                         <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Advogado do Processo: </p><p style={{ fontWeight: "500" }}>{processContents.advogado.name}</p></div>
                                         <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nome do Cliente: </p><p style={{ fontWeight: "500" }}>{processContents.customer.name}</p></div>
-                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF do Cliente: </p><p style={{ fontWeight: "500" }}>{processContents.customer.name}</p></div>
+                                        <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>CPF do Cliente: </p><p style={{ fontWeight: "500" }}>{processContents.customer.cpf}</p></div>
                                         <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Reunião datada para: </p><p style={{ fontWeight: "500" }}>{processContents.meeting.date}</p></div>
                                     </MDBCardText>
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
