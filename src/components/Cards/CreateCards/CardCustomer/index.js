@@ -51,7 +51,7 @@ function CardCustomer() {
                 <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                     <MDBCard className='text-center'>
                         <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                            <MDBCardTitle className="m-4">Cadastro do Cliente</MDBCardTitle>
+                            <MDBCardTitle className="m-4">Cadastrando o Cliente</MDBCardTitle>
                             <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
                                 <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-name">Nome completo: </label>
