@@ -1,5 +1,5 @@
 import { api } from "../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { infoContext } from "../../context/infoContext";
 import { useContext, useEffect, useState } from "react";
 // import { AuthContext } from "../../context/authContext";
@@ -17,7 +17,7 @@ import Button from 'react-bootstrap/Button';
 // import Stack from 'react-bootstrap/Stack';
 
 function DetailPage() {
-
+    const params = useParams();
     const navigate = useNavigate();
     const { objectId } = useContext(infoContext);
     const [customerContents, setCustomerContents] = useState({
@@ -97,7 +97,7 @@ function DetailPage() {
                                 </MDBCardText>
                                 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                     <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
-                                    <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                                    <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-cliente/${params.id}`) }}>Editar</Button>
                                     <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
                                 </div>
                             </MDBCardBody>
@@ -125,7 +125,7 @@ function DetailPage() {
                                     </MDBCardText>
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-processo/${params.id}`) }}>Editar</Button>
                                         <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
                                     </div>
                                 </MDBCardBody>
@@ -149,7 +149,7 @@ function DetailPage() {
                                     </MDBCardText>
                                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
                                         <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate("/home") }}>Voltar</Button>
-                                        <Button variant="outline-dark" style={{ width: "10vw" }}>Editar</Button>
+                                        <Button variant="outline-dark" style={{ width: "10vw" }} onClick={() => { navigate(`/editando-reuniao/${params.id}`) }}>Editar</Button>
                                         <Button variant="outline-dark" style={{ width: "10vw" }}>Deletar</Button>
                                     </div>
                                 </MDBCardBody>
