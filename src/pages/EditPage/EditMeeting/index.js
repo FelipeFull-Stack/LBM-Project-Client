@@ -64,10 +64,10 @@ function EditMeeting() {
                 <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                     <MDBCard className='text-center'>
                         <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                            <MDBCardTitle className="m-4">Cadastro do Cliente</MDBCardTitle>
-                            <MDBCardText className="m-5">
+                            <MDBCardTitle className="m-4">Reagendando a Reunião</MDBCardTitle>
+                            <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-date">Data a ser marcada: </label>
                                     <input
                                         id="input-date"
@@ -75,15 +75,17 @@ function EditMeeting() {
                                         name="date"
                                         value={form.date}
                                         onChange={handleChange}
+                                        style={{ width: "25vw", height: "5vh" }}
                                     />
                                 </div>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label>Horário: </label>
                                     <select
                                         name="time"
                                         value={form.time}
                                         onChange={handleChange}
+                                        style={{ width: "25vw", height: "5vh" }}
                                     >
                                         <option>Selecione um Horário</option>
                                         <option value="00:00">00:00</option>
@@ -137,13 +139,14 @@ function EditMeeting() {
                                     </select>
                                 </div>
 
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-type">Tema: </label>
                                     <select
                                         id="input-type"
                                         name="type"
                                         value={form.type}
                                         onChange={handleChange}
+                                        style={{ width: "25vw", height: "5vh" }}
                                     >
                                         <option>Selecione o tema</option>
                                         <option value="CONCILIACAO OU MEDIACAO">Conciliação ou Mediação</option>
@@ -153,8 +156,8 @@ function EditMeeting() {
                                 </div>
                             </MDBCardText>
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                <Button variant="outline-dark" onClick={handleSubmit}>Salvar</Button>
-                                <Button variant="outline-dark" onClick={handleClear}>Limpar</Button>
+                                <Button variant="outline-success" onClick={handleSubmit}>Salvar</Button>
+                                <Button variant="outline-secondary" onClick={handleClear}>Limpar</Button>
                                 <Button variant="outline-dark" onClick={() => { navigate("/home") }}>Voltar</Button>
                             </div>
                         </MDBCardBody>

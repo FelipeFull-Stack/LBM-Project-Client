@@ -70,9 +70,9 @@ function EditProcess() {
                 <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                     <MDBCard className='text-center'>
                         <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                            <MDBCardTitle className="m-4">Cadastro do Cliente</MDBCardTitle>
-                            <MDBCardText className="m-5">
-                                <div>
+                            <MDBCardTitle className="m-4">Editando o Processo</MDBCardTitle>
+                            <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-numProcess">Nº do Processo: </label>
                                     <input
                                         id="input-numProcess"
@@ -83,14 +83,20 @@ function EditProcess() {
                                         placeholder="_______.__.____._.__.____"
                                         minLength="20"
                                         maxLength="20"
+                                        className="rounded"
+                                        style={{width: "25vw", height: "5vh"}}
                                         required
                                     />
                                 </div>
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
+                                    <label htmlFor="input-type">Tipo do Processo: </label>
                                     <select
+                                        id="input-type"
                                         name="type"
                                         value={form.type}
                                         onChange={handleChange}
+                                        className="rounded"
+                                        style={{width: "25vw", height: "5vh"}}
                                     >
                                         <option>Escolha o tipo do processo</option>
                                         <option value="CONHECIMENTO">Conhecimento</option>
@@ -98,7 +104,7 @@ function EditProcess() {
                                         <option value="EXECUCAO">Execução</option>
                                     </select>
                                 </div>
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-value">Value: </label>
                                     <input
                                         id="input-value"
@@ -106,14 +112,18 @@ function EditProcess() {
                                         name="value"
                                         value={form.value}
                                         onChange={handleChange}
+                                        className="rounded"
+                                        style={{width: "25vw", height: "5vh"}}
                                     />
                                 </div>
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-etapa">Etapa: </label>
                                     <select
                                         name="etapa"
                                         value={form.etapa}
                                         onChange={handleChange}
+                                        className="rounded"
+                                        style={{width: "25vw", height: "5vh"}}
                                     >
                                         <option>Escolha a etapa do processo</option>
                                         <option value="PETICAO INICIAL">Petição Inicial</option>
@@ -125,7 +135,7 @@ function EditProcess() {
                                         <option value="CUMPRIMENTO DA SENTENCA">Cumprimento da Sentança</option>
                                     </select>
                                 </div>
-                                <div>
+                                <div className="border" style={{ width: "42vw", display: "flex", justifyContent: "space-between" }}>
                                     <label htmlFor="input-comarca">Comarca: </label>
                                     <input
                                         id="input-comarca"
@@ -133,12 +143,14 @@ function EditProcess() {
                                         name="comarca"
                                         value={form.comarca}
                                         onChange={handleChange}
+                                        className="rounded"
+                                        style={{width: "25vw", height: "5vh"}}
                                     />
                                 </div>
                             </MDBCardText>
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "5px" }}>
-                                <Button variant="outline-dark" onClick={handleSubmit}>Salvar</Button>
-                                <Button variant="outline-dark" onClick={handleClear}>Limpar</Button>
+                                <Button variant="outline-success" onClick={handleSubmit}>Salvar</Button>
+                                <Button variant="outline-secondary" onClick={handleClear}>Limpar</Button>
                                 <Button variant="outline-dark" onClick={() => { navigate("/home") }}>Voltar</Button>
                             </div>
                         </MDBCardBody>
