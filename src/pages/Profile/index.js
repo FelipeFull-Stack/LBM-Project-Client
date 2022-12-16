@@ -53,7 +53,7 @@ export function Profile() {
             <div className="bg-secondary" style={{ display: "flex", justifyContent: "center", justifyItems: "center", alignItems: "center", alignContent: "center", height: "100vh" }}>
                 <MDBCard className='text-center'>
                     <MDBCardBody style={{ width: "75vw", height: "75vh" }}>
-                        <MDBCardTitle className="m-4" style={{ fontSize: "40px" }}>Perfil</MDBCardTitle>
+                        <MDBCardTitle className="m-4" style={{ fontSize: "40px" }}>Perfil do Advogado</MDBCardTitle>
                         <MDBCardText className="m-5" style={{ display: "flex", flexDirection: "column", alignItems: "center", alignContent: "center" }}>
                             <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>Nome: </p><p style={{ fontWeight: "500" }}>{userData.name}</p></div>
                             <div className="border" style={{ width: "45vw", height: "5vh", display: "flex", justifyContent: "space-between" }}><p>email: </p><p style={{ fontWeight: "500" }}>{userData.email}</p></div>
