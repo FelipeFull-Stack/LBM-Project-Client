@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../../api/api";
+import { api } from "../../api/api.js";
 import logoLBM from "../../images/logo-lbm-semi-extenso.png"
 
 import Button from 'react-bootstrap/Button';
