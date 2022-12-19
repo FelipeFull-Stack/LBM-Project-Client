@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../../api/api.js";
+import { api } from "../../api/api";
 import logoLBM from "../../images/logo-lbm-semi-extenso.png"
 
 import Button from 'react-bootstrap/Button';
@@ -27,7 +27,7 @@ function Signup() {
             await api.post("/user/signup", form);
             navigate("/login");
         } catch (err) {
-            console.log(`Erro no signup FrontEnd: ${err}`);
+            console.log(`Erro no signup/handleSubmit FrontEnd: ${err}`);
         }
     }
 
