@@ -40,7 +40,7 @@ function CardDisplayMeeting(props) {
                         {/* <MDBCardTitle>{name}</MDBCardTitle> */}
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             <button
-                                className="btn btn-success btn-outline-success rounded border"
+                                className="btn success btn-outline-success rounded border"
                                 stype={{ width: "5px", height: "5px" }}
                                 onClick={() => {
                                     setObjectId({idSelected: id, type: "meeting"})
