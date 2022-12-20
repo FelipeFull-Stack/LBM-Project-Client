@@ -13,6 +13,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Stack from 'react-bootstrap/Stack';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { DropdownItem } from "reactstrap";
 
 function Home() {
     const { loggedInUser, setLoggedInUser, loadingContext } = useContext(AuthContext);
@@ -46,7 +49,7 @@ function Home() {
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
                                 <Container className="w-75 m-1" style={{ display: "flex", justifyContent: "flex-end" }}>
-                                    <Button onClick={() => { navigate("/cadastro-cliente") }} variant="dark outline-primary" className="p-2 rounded m-2">
+                                    <Button onClick={() => { navigate("/cadastro-cliente") }} variant="primary outline-primary" className="p-2 rounded m-2">
                                         Cadastro
                                     </Button>
                                     <Nav className="w-auto border border-secondary rounded p-2">
@@ -72,27 +75,41 @@ function Home() {
                                 <div className="d-flex w-25 h-100 bg-secondary">
                                     <Stack gap={2} className="mx-left align-items-center w-100 border-right border-top">
                                         <ButtonGroup vertical className="w-75">
-                                            <Button
+                                            <DropdownButton
+                                                as={ButtonGroup}
+                                                title="Clientes"
+                                                id="bg-vertical-dropdown-1"
                                                 variant="dark outline-secondary"
                                                 className="p-2 rounded my-1 mt-3"
-                                                onClick={() => { setDisplaySelect({ selected: "customer" }) }}
                                             >
-                                                Clientes
-                                            </Button>
-                                            <Button
+                                                <Dropdown.Item onClick={() => { setDisplaySelect({ selected: "customer" }) }}>Consultar</Dropdown.Item>
+                                                <Dropdown.Item >Editar</Dropdown.Item>
+                                                <Dropdown.Item>Aniversário</Dropdown.Item>
+
+                                            </DropdownButton>
+
+                                            <DropdownButton
+                                                as={ButtonGroup}
+                                                title="Processos"
+                                                id="bg-vertical-dropdown-2"
                                                 variant="dark outline-secondary"
                                                 className="p-2 rounded my-1"
-                                                onClick={() => { setDisplaySelect({ selected: "process" }) }}
                                             >
-                                                Processos
-                                            </Button>
-                                            <Button
+                                                <Dropdown.Item onClick={() => { setDisplaySelect({ selected: "process" }) }}>Consultar</Dropdown.Item>
+                                                <Dropdown.Item>Editar</Dropdown.Item>
+                                            </DropdownButton>
+
+                                            <DropdownButton
+                                                as={ButtonGroup}
+                                                title="Reuniões"
+                                                id="bg-vertical-dropdown-3"
                                                 variant="dark outline-secondary"
                                                 className="p-2 rounded my-1"
-                                                onClick={() => { setDisplaySelect({ selected: "meeting" }) }}
                                             >
-                                                Reuniões
-                                            </Button>
+                                                <Dropdown.Item onClick={() => { setDisplaySelect({ selected: "meeting" }) }}>Consultar</Dropdown.Item>
+                                                <Dropdown.Item>Editar</Dropdown.Item>
+                                            </DropdownButton>
+
                                             <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
                                                 Extra
                                             </Button>
@@ -165,10 +182,10 @@ export { Home }
     <button onClick={() => { navigate("/signup") }}>Faça o Cadastro</button>
 </div> */
 
-// <DropdownButton
-// as={ButtonGroup}
-// title="Clientes"
-// id="bg-vertical-dropdown-1"
+// <Button
+//     variant="dark outline-secondary"
+//     className="p-2 rounded my-1"
+//     onClick={() => { setDisplaySelect({ selected: "process" }) }}
 // >
-// <Dropdown.Item onClick={() => { navigate("/cadastro-cliente") }}>Novo</Dropdown.Item>
-// </DropdownButton>
+//     Processos
+// </Button>
