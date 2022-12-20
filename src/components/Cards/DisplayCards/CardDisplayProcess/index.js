@@ -69,13 +69,13 @@ function CardDisplayProcess(props) {
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             {/* <input type="radio" /> */}
                             <button
-                                className="btn success btn-outline-success rounded border"
+                                className="btn secondary btn-outline-success rounded border"
                                 stype={{ width: "5px", height: "5px" }}
                                 onClick={() => {
                                     setObjectId({ idSelected: id, type: "process" })
                                     navigate(`/detalhe/${id}`)
                                 }}
-                            ></button>
+                            >Ver</button>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "31%" }}>{NumProcessStyle}</div>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "15%" }}>{stringType}</div>
                             <div style={{ fontSize: "15px", fontWeight: "700", width: "19%" }}>{processValue}</div>

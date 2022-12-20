@@ -80,7 +80,7 @@ function Home() {
                                                 title="Clientes"
                                                 id="bg-vertical-dropdown-1"
                                                 variant="dark outline-secondary"
-                                                className="p-2 rounded my-1 mt-3"
+                                                className="p-2 rounded mt-3"
                                             >
                                                 <Dropdown.Item onClick={() => { setDisplaySelect({ selected: "customer" }) }}>Consultar</Dropdown.Item>
                                                 <Dropdown.Item >Editar</Dropdown.Item>
@@ -93,7 +93,7 @@ function Home() {
                                                 title="Processos"
                                                 id="bg-vertical-dropdown-2"
                                                 variant="dark outline-secondary"
-                                                className="p-2 rounded my-1"
+                                                className="p-2 rounded"
                                             >
                                                 <Dropdown.Item onClick={() => { setDisplaySelect({ selected: "process" }) }}>Consultar</Dropdown.Item>
                                                 <Dropdown.Item>Editar</Dropdown.Item>
@@ -104,7 +104,7 @@ function Home() {
                                                 title="Reuniões"
                                                 id="bg-vertical-dropdown-3"
                                                 variant="dark outline-secondary"
-                                                className="p-2 rounded my-1"
+                                                className="p-2 rounded"
                                             >
                                                 <Dropdown.Item onClick={() => { setDisplaySelect({ selected: "meeting" }) }}>Consultar</Dropdown.Item>
                                                 <Dropdown.Item>Editar</Dropdown.Item>
@@ -138,6 +138,7 @@ function Home() {
                                     backgroundColor: "rgb(223,229,231)"
 
                                 }}>
+                                
                                     <Stack gap={2} className="mx-right w-100">
                                         <div>
                                             <CardDisplay />

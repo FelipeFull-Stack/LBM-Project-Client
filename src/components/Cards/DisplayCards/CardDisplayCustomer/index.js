@@ -35,12 +35,12 @@ function CardDisplayCustomer(props) {
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             {/* <Link to={`/detalhe/${id}`}> */}
                             <button
-                                className="btn success btn-outline-success rounded border"
+                                className="btn secondary btn-outline-success rounded border"
                                 onClick={() => {
                                     setObjectId({ idSelected: id, type: "customer" })
                                     navigate(`/detalhe/${id}`)
                                 }}
-                            ></button>
+                            >Ver</button>
                             {/* </Link> */}
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "35%" }}>{name}</div>
                             <div style={{ fontSize: "16px", fontWeight: "700", width: "20%" }}>{numberCPFstyle}</div>
