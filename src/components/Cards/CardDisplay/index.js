@@ -51,11 +51,11 @@ function CardDisplay() {
 
                             <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
                                 <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
-                                <div style={{ fontSize: "20px", fontWeight: "700", width: "30%", color: "white" }}>Nome Completo:</div>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "30%", color: "black" }}>Nome Completo:</div>
                                 <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                                <div style={{ fontSize: "20px", fontWeight: "700", width: "16.5%", color: "white" }}>CPF:</div>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "16.5%", color: "black" }}>CPF:</div>
                                 <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                                <div style={{ fontSize: "20px", fontWeight: "700", width: "25%", color: "white" }}>Contato:</div>
+                                <div style={{ fontSize: "20px", fontWeight: "700", width: "25%", color: "black" }}>Contato:</div>
                             </div>
                             {customerContents.map((currentElement) => {
                                 return (
@@ -86,13 +86,13 @@ function CardDisplay() {
 
                         <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "white" }}>Nº Processo:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "26%", color: "black" }}>Nº Processo:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "9%", color: "white" }}>Tipo:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "9%", color: "black" }}>Tipo:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "white" }}>Valor:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "black" }}>Valor:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "16%", color: "white" }}>Etapa:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "16%", color: "black" }}>Etapa:</div>
                         </div>
                         {processContents.map((currentElement) => {
                             return <CardDisplayProcess
@@ -113,11 +113,11 @@ function CardDisplay() {
 
                         <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "22.5%", color: "white" }}>Data marcada:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "22.5%", color: "black" }}>Data marcada:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "17.5%", color: "white" }}>Horário:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "17.5%", color: "black" }}>Horário:</div>
                             <div style={{ fontSize: "24px", fontWeight: "700", width: "1%" }}>|</div>
-                            <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "white" }}>Valor:</div>
+                            <div style={{ fontSize: "20px", fontWeight: "700", width: "14%", color: "black" }}>Valor:</div>
                         </div>
                         {meetingContents.map((currentElement) => {
                             return <CardDisplayMeeting

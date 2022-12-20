@@ -41,12 +41,12 @@ function Home() {
                         <body style={{
                             position: "fixed", top: "0", left: "0", width: "100vw"
                         }}>
-                            <Navbar bg="dark" variant="dark" style={{ display: "flex", alignItems: "center" }}>
+                            <Navbar bg="dark" variant="light" style={{ display: "flex", alignItems: "center" }}>
                                 <div className="w-25  m-1">
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
                                 <Container className="w-75 m-1" style={{ display: "flex", justifyContent: "flex-end" }}>
-                                    <Button onClick={() => { navigate("/cadastro-cliente") }} variant="dark outline-secondary" className="p-2 rounded my-1">
+                                    <Button onClick={() => { navigate("/cadastro-cliente") }} variant="dark outline-primary" className="p-2 rounded m-2">
                                         Cadastro
                                     </Button>
                                     <Nav className="w-auto border border-secondary rounded p-2">
