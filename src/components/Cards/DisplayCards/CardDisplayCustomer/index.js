@@ -35,7 +35,7 @@ function CardDisplayCustomer(props) {
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             {/* <Link to={`/detalhe/${id}`}> */}
                             <button
-                                className="btn btn-outline-success rounded border"
+                                className="btn btn-success btn-outline-success rounded border"
                                 onClick={() => {
                                     setObjectId({ idSelected: id, type: "customer" })
                                     navigate(`/detalhe/${id}`)
