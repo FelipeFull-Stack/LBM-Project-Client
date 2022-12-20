@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { authDisplayContext } from "../../context/authDisplayContext";
 import { useNavigate } from "react-router-dom";
-import logoCourtHearing from "../../images/logo-court-hearing-lbm.png"
+import logoCourtHearing from "../../images/logo_transparent_background.png"
 import { CardDisplay } from "../../components/Cards/CardDisplay";
 
 import Modal from 'react-bootstrap/Modal';
@@ -46,6 +46,9 @@ function Home() {
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
                                 <Container className="w-75 m-1" style={{ display: "flex", justifyContent: "flex-end" }}>
+                                    <Button onClick={() => { navigate("/cadastro-cliente") }} variant="dark outline-secondary" className="p-2 rounded my-1">
+                                        Cadastro
+                                    </Button>
                                     <Nav className="w-auto border border-secondary rounded p-2">
                                         <div className="border-right border-secondary">
                                             <Nav.Link href="/home">Home</Nav.Link>
@@ -90,8 +93,8 @@ function Home() {
                                             >
                                                 Reuniões
                                             </Button>
-                                            <Button onClick={() => { navigate("/cadastro-cliente") }} variant="dark outline-secondary" className="p-2 rounded my-1">
-                                                Cadastro
+                                            <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
+                                                Extra
                                             </Button>
                                             <Button variant="dark outline-secondary" className="p-2 rounded my-1" disabled>
                                                 Extra
@@ -109,12 +112,14 @@ function Home() {
                                     </Stack>
                                 </div>
 
-                                <div className="d-block flex-row bg-secondary border p-1 " style={{
+                                <div className="d-block flex-row border p-1 " style={{
                                     width: "75vw",
                                     height: "78.5vh",
                                     overflow: "scroll",
                                     overflowX: "hidden",
                                     overflowY: "auto",
+                                    backgroundColor: "rgb(223,229,231)"
+
                                 }}>
                                     <Stack gap={2} className="mx-right w-100">
                                         <div>
