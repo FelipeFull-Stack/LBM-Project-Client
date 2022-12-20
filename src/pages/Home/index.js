@@ -41,7 +41,7 @@ function Home() {
                         <body style={{
                             position: "fixed", top: "0", left: "0", width: "100vw"
                         }}>
-                            <Navbar bg="dark" variant="light" style={{ display: "flex", alignItems: "center" }}>
+                            <Navbar bg="light" variant="light" style={{ display: "flex", alignItems: "center" }}>
                                 <div className="w-25  m-1">
                                     <img src={logoCourtHearing} alt="Logo Court Hearing" className="m-2" style={{ width: "225px" }} />
                                 </div>
