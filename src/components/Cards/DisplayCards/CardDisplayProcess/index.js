@@ -69,7 +69,7 @@ function CardDisplayProcess(props) {
                         <MDBCardText style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "center", height: "20px" }}>
                             {/* <input type="radio" /> */}
                             <button
-                                className="btn btn-success btn-outline-success rounded border"
+                                className="btn success btn-outline-success rounded border"
                                 stype={{ width: "5px", height: "5px" }}
                                 onClick={() => {
                                     setObjectId({ idSelected: id, type: "process" })

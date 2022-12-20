@@ -74,7 +74,7 @@ function Home() {
                             <div style={{ height: "90vh" }} className="d-flex">
                                 <div className="d-flex w-25 h-100 bg-secondary">
                                     <Stack gap={2} className="mx-left align-items-center w-100 border-right border-top">
-                                        <ButtonGroup vertical className="w-75">
+                                        <ButtonGroup vertical className="w-75 rounded">
                                             <DropdownButton
                                                 as={ButtonGroup}
                                                 title="Clientes"
