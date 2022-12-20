@@ -79,10 +79,10 @@ function CardDisplay() {
                 displaySelect.selected === "process" ?
                     <>
 
-                        {/* <div>
+                        <div className="m-2">
                             <input className="rounded" />
                             <button className="rounded">Pesquisar</button>
-                        </div> */}
+                        </div>
 
                         <div className="" style={{ display: "flex", flexDirection: "row", gap: "10px", alignItems: "baseline", height: "7vh" }}>
                             <div style={{ fontSize: "20px", fontWeight: "700", width: "7%" }}> </div>
